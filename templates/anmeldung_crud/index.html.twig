@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anmeldung index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Anmeldung index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>EventNr</th>
+                <th>Name</th>
+                <th>Teilnehmer</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for anmeldung in anmeldungs %}
+                <tr>
+                    <td>{{ anmeldung.id }}</td>
+                    <td>{{ anmeldung.Email }}</td>
+                    <td>{{ anmeldung.eventNr }}</td>
+                    <td>{{ anmeldung.name }}</td>
+                    <td>{{ anmeldung.teilnehmer }}</td>
+                    <td>{{ anmeldung.status }}</td>
+                    <td>
+                        <a href="{{ path('app_anmeldung_crud_show', {'id': anmeldung.id}) }}">show</a>
+                        <a href="{{ path('app_anmeldung_crud_edit', {'id': anmeldung.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_anmeldung_crud_new') }}">Create new</a>
+
+    </div>
+{% endblock %}

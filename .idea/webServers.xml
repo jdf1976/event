@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7e5ac197-70b3-4831-b9ed-653a0188a2f3" name="pec-weissach.com" url="http://w00c7ea5.kasserver.com">
+        <fileTransfer host="w00c7ea5.kasserver.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,34 @@
+.text-body-secondary{
+    color: #0a183d !important;
+}
+
+.header-section{
+    background: #FFFFFF !important;
+    color: #0a183d;
+
+}
+
+.footer-section{
+    background: #FFFFFF !important;
+}
+.main-menu li a{
+    color: #0a183d !important;
+}
+
+.header-section a{
+    color: #0a183d !important;
+}
+
+.footer-widget h2{
+    color: #0a183d !important;
+}
+
+.intro-section{
+    background-image: url("../img/hintergrund_blau.jpg") !important;
+    color: #FFFFFF !important;
+}
+
+.intro-section h3,.intro-section p{
+    color: #FFFFFF !important;
+}
+

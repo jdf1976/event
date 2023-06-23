@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anmeldung{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Anmeldung</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ anmeldung.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ anmeldung.Email }}</td>
+            </tr>
+            <tr>
+                <th>EventNr</th>
+                <td>{{ anmeldung.eventNr }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ anmeldung.name }}</td>
+            </tr>
+            <tr>
+                <th>Teilnehmer</th>
+                <td>{{ anmeldung.teilnehmer }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ anmeldung.status }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_anmeldung_crud_index') }}">back to list</a>
+
+        <a href="{{ path('app_anmeldung_crud_edit', {'id': anmeldung.id}) }}">edit</a>
+
+        {{ include('anmeldung_crud/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

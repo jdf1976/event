@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Event index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Beschreibung</th>
+                <th>Datum</th>
+                <th>Bild</th>
+                <th>Anzahl</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.beschreibung }}</td>
+                    <td>{{ event.datum }}</td>
+                    <td>{{ event.bild }}</td>
+                    <td>{{ event.anzahl }}</td>
+                    <td>
+                        <a href="{{ path('app_event_crud_show', {'id': event.id}) }}">show</a>
+                        <a href="{{ path('app_event_crud_edit', {'id': event.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_event_crud_new') }}">Create new</a>
+    </div>
+{% endblock %}

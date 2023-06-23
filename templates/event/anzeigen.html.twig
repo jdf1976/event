@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello anlegen!{% endblock %}
+
+{% block body %}
+<br>
+    <div class="container">
+        <h1>{{ events.name }}</h1>
+        <img src="{{ asset('bilder/' ~ events.bild) }}">
+    </div>
+{% endblock %}

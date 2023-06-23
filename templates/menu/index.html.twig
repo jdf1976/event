@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MenuController!{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('nachricht') %}
+        <div class="alert alert-success">
+            <h3>{{ message }}</h3>
+        </div>
+    {% endfor %}
+
+
+    <!-- Playlist section -->
+    <section class="playlist-section spad">
+        <div class="container-fluid">
+            <div class="section-title">
+                <h2>Events</h2>
+            </div>
+            <div class="container">
+                <ul class="playlist-filter controls">
+                    <li class="control" data-filter=".Energie">Energie</li>
+                    <li class="control" data-filter=".Wärmepumpe">Wärmepumpe</li>
+                    <li class="control" data-filter=".SmartHome">Smart Home</li>
+                    <li class="control" data-filter=".Wasserhygiene">Wasserhygiene</li>
+                    <li class="control" data-filter=".Vortrag">Vortrag</li>
+                    <br>
+                    <li class="control" data-filter=".Brandschutz">Brandschutz</li>
+                    <li class="control" data-filter=".Energieberatung">Energieberatung</li>
+                    <li class="control" data-filter=".Sanierung">Sanierung</li>
+                    <li class="control" data-filter=".Produktvorstellung">Produktvorstellung</li>
+                    <li class="control" data-filter="all">Alles</li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row playlist-area">
+
+                {% for event in events %}
+
+                    <div class="mix col-lg-3 col-md-4 col-sm-6 {{ event.kategorie }}">
+                        <div class="playlist-item">
+                            <div class="col">
+                                <div class="card">
+                                    <img src="{{ asset('bilder/' ~ event.bild) }}" alt="">
+                                    <div class="card-body text-left">
+                                        <h5 class="card-title text-left">{{ event.name }}</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }}</small>
+                                        <br>
+                                        <small class="text-body-secondary">noch: {{ event.anzahl }}/20 Plätzen frei</small>
+                                        <br>
+                                        <a class="btn btn-outline-secondary" href="{{ path('app_anmelden', {id: event.id}) }}">Anmelden</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        </div></section>
+    <!-- Playlist section end -->
+{% endblock %}

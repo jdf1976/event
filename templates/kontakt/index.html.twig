@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello KontaktController!{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('nachricht') %}
+        <div class="alert alert-success">
+            <h3>{{ message }}</h3>
+        </div>
+    {% endfor %}
+    <!-- Contact section -->
+    <section class="contact-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <!-- Map -->
+                    <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d880.2352768955315!2d9.471723761287446!3d48.92687777941966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799b5a58baf0901%3A0xd1e86429f3da1664!2sPfeiffer%20-%20Heizung%2C%20Sanit%C3%A4r%2C%20Elektro%2C%20regenerative%20Energien%20und%20Fliesen!5e1!3m2!1sde!2sde!4v1686744325917!5m2!1sde!2sde" width="400" height="250" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                </div>
+                <div class="col-lg-6 p-0">
+                    <div class="contact-warp">
+                        <div class="section-title mb-0">
+                            <h2>So finden Sie uns</h2>
+                        </div>
+                        <p>Die Firma Pfeiffer GmbH & Co. KG befindet sich in einer guten Lage in der Stuttgarter Straße 61, in 71544 Weissach im Tal.
+                            Weissach  ist eine charmante Gemeinde im Rems-Murr-Kreis in Baden-Württemberg, Deutschland.
+                            Unser Gebäude liegt ideal an der Stuttgarter Straße, einer der Hauptverkehrsstraßen der Region.  </p>
+                        <ul>
+                            <li>Stuttgarter Str. 61</li>
+                            <li>71554 Weissach im Tal</li>
+                            <li>info@pfeiffer-gmbh.com</li>
+                        </ul>
+                        {{ form(kontaktForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

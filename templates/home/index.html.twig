@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <!-- Hero section -->
+    <section class="hero-section">
+        <div class="hero-slider owl-carousel">
+            <div class="hs-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hs-text">
+                                <h2><span>{{ event1.name }}</span></h2>
+                                <p>{{ event1.beschreibung }}</p>
+                                <a href="#" class="site-btn">Anmelden</a>
+                                <a href="#" class="site-btn sb-c2">Freie Plätze</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hr-img">
+                                <img src="{{ asset('bilder/'~ event1.bild) }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hs-text">
+                                <h2><span>{{ event2.name }}</span></h2>
+                                <p>{{ event2.beschreibung }}</p>
+                                <a href="#" class="site-btn">Anmelden</a>
+                                <a href="#" class="site-btn sb-c2">Freie Plätze</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hr-img">
+                                <img src="{{ asset('bilder/'~ event2.bild) }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero section end -->
+
+
+{% endblock %}
