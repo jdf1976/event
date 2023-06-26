@@ -13,8 +13,10 @@
                 <th>Name</th>
                 <th>Beschreibung</th>
                 <th>Datum</th>
+                <th>zeit</th>
                 <th>Bild</th>
                 <th>Anzahl</th>
+                <th>Hinweis</th>
                 <th>actions</th>
             </tr>
             </thead>
@@ -25,11 +27,15 @@
                     <td>{{ event.name }}</td>
                     <td>{{ event.beschreibung }}</td>
                     <td>{{ event.datum }}</td>
+                    <td>{{ event.zeit }}</td>
                     <td>{{ event.bild }}</td>
                     <td>{{ event.anzahl }}</td>
+                    <td>{{ event.hinweis }}</td>
                     <td>
-                        <a href="{{ path('app_event_crud_show', {'id': event.id}) }}">show</a>
-                        <a href="{{ path('app_event_crud_edit', {'id': event.id}) }}">edit</a>
+                        <div class="btn-block">
+                            <a class="btn btn-secondary btn-block" type="button" href="{{ path('app_event_crud_show', {'id': event.id}) }}">show</a>
+                            <a class="btn btn-secondary btn-block" type="button" href="{{ path('app_event_crud_edit', {'id': event.id}) }}">edit</a>
+                        </div>
                     </td>
                 </tr>
             {% else %}
@@ -40,6 +46,6 @@
             </tbody>
         </table>
 
-        <a href="{{ path('app_event_crud_new') }}">Create new</a>
+        <a class="btn btn-success btn-block"  href="{{ path('app_event_crud_new') }}">neues Event anlegen</a>
     </div>
 {% endblock %}

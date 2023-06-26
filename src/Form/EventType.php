@@ -20,6 +20,8 @@ class EventType extends AbstractType
             ->add('beschreibung')
             ->add('Kategorie', EntityType::class,['class'=>Kategorie::class])
             ->add('datum')
+            ->add('zeit')
+            ->add('hinweis')
             ->add('bild', FileType::class)
             ->add('speichern', SubmitType::class)
 

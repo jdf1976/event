@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
 class Event1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -18,6 +19,8 @@ class Event1Type extends AbstractType
             ->add('bild')
             ->add('anzahl')
             ->add('Kategorie')
+            ->add('zeit')
+            ->add('hinweis')
         ;
     }
 

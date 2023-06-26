@@ -26,14 +26,17 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $bild = null;
 
-
-
     #[ORM\ManyToOne(targetEntity: 'App\Entity\Kategorie', inversedBy: 'event')]
     private ?Kategorie $Kategorie = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $anzahl = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $zeit = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $hinweis = null;
 
 
     public function getId(): ?int
@@ -109,6 +112,30 @@ class Event
     public function setAnzahl(?int $anzahl): static
     {
         $this->anzahl = $anzahl;
+
+        return $this;
+    }
+
+    public function getZeit(): ?string
+    {
+        return $this->zeit;
+    }
+
+    public function setZeit(?string $zeit): static
+    {
+        $this->zeit = $zeit;
+
+        return $this;
+    }
+
+    public function getHinweis(): ?string
+    {
+        return $this->hinweis;
+    }
+
+    public function setHinweis(?string $hinweis): static
+    {
+        $this->hinweis = $hinweis;
 
         return $this;
     }

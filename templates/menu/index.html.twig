@@ -44,8 +44,13 @@
                                     <div class="card-body text-left">
                                         <h5 class="card-title text-left">{{ event.name }}</h5>
                                     </div>
+                                    {% if event.hinweis == not null %}
+                                        <div class="alert alert-danger">
+                                            <h3>{{ event.hinweis }}</h3>
+                                        </div>
+                                    {% endif %}
                                     <div class="card-footer">
-                                        <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }}</small>
+                                        <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }} um: {{ event.zeit }} Uhr</small>
                                         <br>
                                         <small class="text-body-secondary">noch: {{ event.anzahl }}/20 Plätzen frei</small>
                                         <br>
