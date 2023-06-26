@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
+<head>
 <title>PEC | Zukunft gesatalten</title>
 <meta charset="UTF-8">
 <meta name="description" content="PEC Zukunft gestalten">
@@ -29,6 +30,7 @@
 <![endif]-->
 
 </head>
+
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -59,9 +61,11 @@
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <li><a href="#">Mitarbeiter</a>
             <ul class="sub-menu">
-                <li><a href="{{ path('event.liste') }}">Events</a></li>
+                <li><a href="{{ path('app_event_crud_index') }}">Events</a></li>
+                <li><a href="{{ path('app_anmeldung_crud_index') }}">Anmeldungen</a> </li>
                 <li><a href="{{ path('event.anlegen') }}">Anlegen</a></li>
                 <li><a href="{{ path('reg') }}" class="register">Registrieren</a></li>
+                <li><a href="{{ path('app_user_crud_index') }}">Benutzer</a> </li>
             </ul>
         </li>
         {% endif %}
@@ -81,7 +85,7 @@
             <div class="col-lg-6">
                 <div class="section-title">
                     <h3 CLASS="pb-4">Richard Buckminster Fuller</h3>
-                    <img src="{{ asset('img/')}}BuckminsterFuller1.jpg">
+                    <img src="{{ asset('img/')}}BuckminsterFuller1.jpg" alt="Bukminster Fuller">
                 </div>
             </div>
             <div class="col-lg-6">
