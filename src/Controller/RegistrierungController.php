@@ -47,9 +47,11 @@ class RegistrierungController extends AbstractController
             $user->setPassword(
                 $passwordHasher->hashPassword($user, $eingabe['password'])
             );
+
             $user->setRawPassword($eingabe['password']);
 
             $errors = $validator->validate($user);
+
             if (count($errors) > 0) {
                 return $this->render('registrierung/index.html.twig', [
                     'regform' => $regform->createView(),
