@@ -3,8 +3,9 @@
 }
 
 .header-section{
-    background: #FFFFFF !important;
-    color: #0a183d;
+
+    color: #FFFFFF !important;
+    background-image: url("../img/hintergrund_rot.jpg") !important;
 
 }
 
@@ -12,11 +13,11 @@
     background: #FFFFFF !important;
 }
 .main-menu li a{
-    color: #0a183d !important;
+    color: #FFFFFF !important;
 }
 
 .header-section a{
-    color: #0a183d !important;
+    color: #FFFFFF !important;
 }
 
 .footer-widget h2{

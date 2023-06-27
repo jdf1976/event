@@ -33,19 +33,43 @@ class AnmeldungController extends AbstractController
         $id_nr = $event->getId();
         $name = $event->getName();
         $anzahl = $event->getAnzahl();
+        $code = $event->getCode();
 
-        $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
-            // Time protection
-            'antispam_time'     => true,
-            'antispam_time_min' => 10, // seconds
-            'antispam_time_max' => 60,
 
-            // Honeypot protection
-            'antispam_honeypot'       => true,
-            'antispam_honeypot_class' => 'hide-me',
-            'antispam_honeypot_field' => 'email-repeat',
-        ]);
-        $kontaktForm->handleRequest($request);
+        if ($code != null) {
+            $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
+                // Time protection
+                'antispam_time' => true,
+                'antispam_time_min' => 10, // seconds
+                'antispam_time_max' => 60,
+
+                // Honeypot protection
+                'antispam_honeypot' => true,
+                'antispam_honeypot_class' => 'hide-me',
+                'antispam_honeypot_field' => 'email-repeat',
+
+
+            ]);
+
+            $kontaktForm->handleRequest($request);
+
+        } else {
+            $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
+                // Time protection
+                'antispam_time' => true,
+                'antispam_time_min' => 10, // seconds
+                'antispam_time_max' => 60,
+
+                // Honeypot protection
+                'antispam_honeypot' => true,
+                'antispam_honeypot_class' => 'hide-me',
+                'antispam_honeypot_field' => 'email-repeat',
+
+            ]);
+            $kontaktForm->handleRequest($request);
+
+        }
+
 
         if ($kontaktForm->isSubmitted()) {
 

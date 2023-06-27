@@ -28,6 +28,12 @@ class Anmeldung
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $status = null;
 
+    #[ORM\Column]
+    private ?bool $datenschutz = null;
+
+    #[ORM\Column]
+    private ?bool $foto = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +95,30 @@ class Anmeldung
     public function setStatus(?string $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function isDatenschutz(): ?bool
+    {
+        return $this->datenschutz;
+    }
+
+    public function setDatenschutz(bool $datenschutz): static
+    {
+        $this->datenschutz = $datenschutz;
+
+        return $this;
+    }
+
+    public function isFoto(): ?bool
+    {
+        return $this->foto;
+    }
+
+    public function setFoto(bool $foto): static
+    {
+        $this->foto = $foto;
 
         return $this;
     }

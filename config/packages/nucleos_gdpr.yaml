@@ -1,0 +1,7 @@
+# config/packages/nucleos_gdpr.yaml
+
+nucleos_gdpr:
+  block_cookies:
+    keep:
+      - PHPSESSID
+      - ADMIN_.*

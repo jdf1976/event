@@ -4,7 +4,7 @@
 
 {% block body %}
     <!-- Hero section -->
-    <section class="hero-section">
+    <section class="hero-section mt-5">
         <div class="hero-slider owl-carousel">
             <div class="hs-item">
                 <div class="container">
@@ -12,14 +12,18 @@
                         <div class="col-lg-6">
                             <div class="hs-text">
                                 <h2><span>{{ event1.name }}</span></h2>
-                                {% if event1.anzahl <= 10 %}
-                                    <div class="border border-danger p-1"><h5>noch {{ event1.anzahl }} Plätze frei</h5></div>
-                                {% elseif event1.anzahl <= 5 %}
-                                    <div class="border border-warning p-1"><h5>noch {{ event1.anzahl }} Plätze frei</h5></div>
+                                {% if event1.anzahl <= 5 %}
+                                    <div><h5 class="font-weight-bold text-danger">ACHTUNG nur noch {{ event1.anzahl }}
+                                            Plätze frei!</h5></div>
+                                {% elseif event1.anzahl <= 10 %}
+                                    <div><h5 class="font-weight-bold text-warning">nur noch {{ event1.anzahl }} Plätze
+                                            frei!</h5></div>
                                 {% else %}
-                                    <div class="border border-success p-1"><h5>noch {{ event1.anzahl }} Plätze frei</h5></div>
+                                    <div><h5 class="font-weight-bold text-primary">noch {{ event1.anzahl }} Plätze
+                                            frei!</h5></div>
                                 {% endif %}
                                 <a class="site-btn mt-3" href="{{ path('app_anmelden', {id: event1.id}) }}">Anmelden</a>
+                                <a class="site-btn sb-c2 mt-3" href="{{ path('app_menu', {id: event2.id}) }}">alle Event´s</a>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -36,15 +40,19 @@
                         <div class="col-lg-6">
                             <div class="hs-text">
                                 <h2><span>{{ event2.name }}</span></h2>
-                                {% if event2.anzahl <= 10 %}
-                                    <div class="border border-danger p-1"><h5>noch {{ event2.anzahl }} Plätze frei</h5></div>
-                                {% elseif event2.anzahl <= 5 %}
-                                    <div class="border border-warning p-1"><h5>noch {{ event2.anzahl }} Plätze frei</h5></div>
+                                {% if event2.anzahl <= 5 %}
+                                    <div><h5 class="font-weight-bold text-danger">ACHTUNG nur noch {{ event2.anzahl }}
+                                            Plätze noch frei!</h5></div>
+                                {% elseif event2.anzahl <= 10 %}
+                                    <div><h5 class="font-weight-bold text-warning">nur noch {{ event2.anzahl }} Plätze
+                                            frei!</h5></div>
                                 {% else %}
-                                    <div class="border border-success p-1"><h5>noch {{ event2.anzahl }} Plätze frei</h5></div>
+                                    <div><h5 class="font-weight-bold text-primary">noch {{ event2.anzahl }} Plätze
+                                            frei!</h5></div>
                                 {% endif %}
 
-                               <a class="site-btn mt-3" href="{{ path('app_anmelden', {id: event2.id}) }}">Anmelden</a>
+                                <a class="site-btn mt-3" href="{{ path('app_anmelden', {id: event2.id}) }}">Anmelden</a>
+                                <a class="site-btn sb-c2 mt-3" href="{{ path('app_menu', {id: event2.id}) }}">alle Event´s</a>
 
                             </div>
                         </div>

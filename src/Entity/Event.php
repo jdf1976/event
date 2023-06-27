@@ -38,6 +38,9 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $hinweis = null;
 
+    #[ORM\Column(length: 30, nullable: true)]
+    private ?string $code = null;
+
 
     public function getId(): ?int
     {
@@ -136,6 +139,18 @@ class Event
     public function setHinweis(?string $hinweis): static
     {
         $this->hinweis = $hinweis;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): static
+    {
+        $this->code = $code;
 
         return $this;
     }

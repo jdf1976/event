@@ -9967,11 +9967,11 @@ a.text-primary:focus, a.text-primary:hover {
 }
 
 .text-secondary {
-    color: #0076bd !important
+    color: rgb(212,49,59) !important;
 }
 
 a.text-secondary:focus, a.text-secondary:hover {
-    color: #494f54 !important
+    color: rgb( 212,49,59) !important;
 }
 
 .text-success {
