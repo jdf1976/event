@@ -13,16 +13,13 @@
                             <div class="hs-text">
                                 <h2><span>{{ event1.name }}</span></h2>
                                 {% if event1.anzahl <= 10 %}
-                                    <div class="border-danger p-3"><h5>noch {{ event1.anzahl }} Plätze frei</div></h5>
+                                    <div class="border border-danger p-1"><h5>noch {{ event1.anzahl }} Plätze frei</h5></div>
                                 {% elseif event1.anzahl <= 5 %}
-                                    <div class="border-warning p-3"><h5>noch {{ event1.anzahl }} Plätze frei</div></h5>
+                                    <div class="border border-warning p-1"><h5>noch {{ event1.anzahl }} Plätze frei</h5></div>
                                 {% else %}
-                                    <div class="border-success p-3"><h5>noch {{ event1.anzahl }} Plätze frei</div></h5
+                                    <div class="border border-success p-1"><h5>noch {{ event1.anzahl }} Plätze frei</h5></div>
                                 {% endif %}
-
-
-                                <a class="site-btn" href="{{ path('app_anmelden', {id: event1.id}) }}">Anmelden</a>
-
+                                <a class="site-btn mt-3" href="{{ path('app_anmelden', {id: event1.id}) }}">Anmelden</a>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -40,14 +37,14 @@
                             <div class="hs-text">
                                 <h2><span>{{ event2.name }}</span></h2>
                                 {% if event2.anzahl <= 10 %}
-                                    <div class="border-danger pb-3"><h5>noch {{ event2.anzahl }} Plätze frei</div></h5>
+                                    <div class="border border-danger p-1"><h5>noch {{ event2.anzahl }} Plätze frei</h5></div>
                                 {% elseif event2.anzahl <= 5 %}
-                                    <div class="border-warning p-3"><h5>noch {{ event2.anzahl }} Plätze frei</div></h5>
+                                    <div class="border border-warning p-1"><h5>noch {{ event2.anzahl }} Plätze frei</h5></div>
                                 {% else %}
-                                    <div class="border-success p-3"><h5>noch {{ event2.anzahl }} Plätze frei</div></h5>
+                                    <div class="border border-success p-1"><h5>noch {{ event2.anzahl }} Plätze frei</h5></div>
                                 {% endif %}
 
-                               <a class="site-btn" href="{{ path('app_anmelden', {id: event2.id}) }}">Anmelden</a>
+                               <a class="site-btn mt-3" href="{{ path('app_anmelden', {id: event2.id}) }}">Anmelden</a>
 
                             </div>
                         </div>
