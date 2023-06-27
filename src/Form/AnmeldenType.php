@@ -32,6 +32,15 @@ class AnmeldenType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            // Time protection
+            'antispam_time'     => true,
+            'antispam_time_min' => 10, // seconds
+            'antispam_time_max' => 60,
+
+            // Honeypot protection
+            'antispam_honeypot'       => true,
+            'antispam_honeypot_class' => 'hide-me',
+            'antispam_honeypot_field' => 'email-repeat',
             'data_class' => Anmeldung::class,
         ]);
     }

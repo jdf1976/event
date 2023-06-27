@@ -24,8 +24,8 @@
                     <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                     <td>{{ user.password }}</td>
                     <td>
-                        <a href="{{ path('app_user_crud_show', {'id': user.id}) }}">show</a>
-                        <a href="{{ path('app_user_crud_edit', {'id': user.id}) }}">edit</a>
+                        <a class="btn btn-outline-primary btn-block" href="{{ path('app_user_crud_show', {'id': user.id}) }}">Anzeigen</a>
+                        <a class="btn btn-outline-secondary btn-block" href="{{ path('app_user_crud_edit', {'id': user.id}) }}">Bearbeiten</a>
                     </td>
                 </tr>
             {% else %}
@@ -36,6 +36,6 @@
             </tbody>
         </table>
 
-        <a href="{{ path('app_user_crud_new') }}">Create new</a>
+        <a class="btn btn-success btn-block mb-5" href="{{ path('app_user_crud_new') }}">Create new</a>
     </div>
 {% endblock %}

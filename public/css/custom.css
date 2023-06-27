@@ -32,3 +32,8 @@
     color: #FFFFFF !important;
 }
 
+.hide-me {
+    border: none !important;
+    width: 0px !important;
+
+}

@@ -33,8 +33,8 @@
                     <td>{{ event.hinweis }}</td>
                     <td>
                         <div class="btn-block">
-                            <a class="btn btn-secondary btn-block" type="button" href="{{ path('app_event_crud_show', {'id': event.id}) }}">show</a>
-                            <a class="btn btn-secondary btn-block" type="button" href="{{ path('app_event_crud_edit', {'id': event.id}) }}">edit</a>
+                            <a class="btn btn-outline-primary btn-block" type="button" href="{{ path('app_event_crud_show', {'id': event.id}) }}">Anzeigen</a>
+                            <a class="btn btn-outline-secondary btn-block" type="button" href="{{ path('app_event_crud_edit', {'id': event.id}) }}">Bearbeiten</a>
                         </div>
                     </td>
                 </tr>
@@ -46,6 +46,6 @@
             </tbody>
         </table>
 
-        <a class="btn btn-success btn-block"  href="{{ path('app_event_crud_new') }}">neues Event anlegen</a>
+        <!-- <a class="btn btn-success btn-block mb-1"  href="{{ path('app_event_crud_new') }}">neues Event anlegen</a> -->
     </div>
 {% endblock %}

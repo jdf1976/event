@@ -12,6 +12,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.15",
         "easycorp/easyadmin-bundle": "^4",
+        "nucleos/antispam-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",

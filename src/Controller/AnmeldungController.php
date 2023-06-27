@@ -34,7 +34,17 @@ class AnmeldungController extends AbstractController
         $name = $event->getName();
         $anzahl = $event->getAnzahl();
 
-        $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung);
+        $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
+            // Time protection
+            'antispam_time'     => true,
+            'antispam_time_min' => 10, // seconds
+            'antispam_time_max' => 60,
+
+            // Honeypot protection
+            'antispam_honeypot'       => true,
+            'antispam_honeypot_class' => 'hide-me',
+            'antispam_honeypot_field' => 'email-repeat',
+        ]);
         $kontaktForm->handleRequest($request);
 
         if ($kontaktForm->isSubmitted()) {
