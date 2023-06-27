@@ -23,7 +23,6 @@
                     <li class="control" data-filter=".SmartHome">Smart Home</li>
                     <li class="control" data-filter=".Wasserhygiene">Wasserhygiene</li>
                     <li class="control" data-filter=".Vortrag">Vortrag</li>
-                    <br>
                     <li class="control" data-filter=".Brandschutz">Brandschutz</li>
                     <li class="control" data-filter=".Energieberatung">Energieberatung</li>
                     <li class="control" data-filter=".Sanierung">Sanierung</li>
@@ -50,11 +49,20 @@
                                         </div>
                                     {% endif %}
                                     <div class="card-footer">
-                                        <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }} um: {{ event.zeit }} Uhr</small>
+                                        <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }}
+                                            um: {{ event.zeit }} Uhr</small>
                                         <br>
-                                        <small class="text-body-secondary">noch: {{ event.anzahl }}/20 Plätzen frei</small>
+                                        {% if event.anzahl <= 5 %}
+                                            <small class="text-danger font-weight-bold">noch: {{ event.anzahl }}/20 Plätzen frei</small>
+                                        {% elseif event.anzahl <=10 %}
+                                            <small class="text-warning font-weight-bold">noch: {{ event.anzahl }}/20 Plätzen frei</small>
+                                        {% else %}
+                                            <small class="text-primary font-weight-bold">noch: {{ event.anzahl }}/20 Plätzen frei</small>
+                                        {% endif %}
+
                                         <br>
-                                        <a class="btn btn-outline-secondary" href="{{ path('app_anmelden', {id: event.id}) }}">Anmelden</a>
+                                        <a class="btn btn-outline-primary mt-2"
+                                           href="{{ path('app_anmelden', {id: event.id}) }}">Anmelden</a>
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +72,7 @@
                 {% endfor %}
             </div>
 
-        </div></section>
+        </div>
+    </section>
     <!-- Playlist section end -->
 {% endblock %}
