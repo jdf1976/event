@@ -34,6 +34,9 @@ class Anmeldung
     #[ORM\Column]
     private ?bool $foto = null;
 
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $code = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Anmeldung
     public function setFoto(bool $foto): static
     {
         $this->foto = $foto;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): static
+    {
+        $this->code = $code;
 
         return $this;
     }

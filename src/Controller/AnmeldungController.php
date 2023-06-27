@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Anmeldung;
 use App\Form\AnmeldenType;
 use App\Repository\EventRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -36,42 +37,31 @@ class AnmeldungController extends AbstractController
         $code = $event->getCode();
 
 
-        if ($code != null) {
-            $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
-                // Time protection
-                'antispam_time' => true,
-                'antispam_time_min' => 10, // seconds
-                'antispam_time_max' => 60,
+        $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
+            // Time protection
+            'antispam_time' => true,
+            'antispam_time_min' => 10, // seconds
+            'antispam_time_max' => 60,
 
-                // Honeypot protection
-                'antispam_honeypot' => true,
-                'antispam_honeypot_class' => 'hide-me',
-                'antispam_honeypot_field' => 'email-repeat',
+            // Honeypot protection
+            'antispam_honeypot' => true,
+            'antispam_honeypot_class' => 'hide-me',
+            'antispam_honeypot_field' => 'email-repeat',
 
-
-            ]);
-
-            $kontaktForm->handleRequest($request);
-
-        } else {
-            $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
-                // Time protection
-                'antispam_time' => true,
-                'antispam_time_min' => 10, // seconds
-                'antispam_time_max' => 60,
-
-                // Honeypot protection
-                'antispam_honeypot' => true,
-                'antispam_honeypot_class' => 'hide-me',
-                'antispam_honeypot_field' => 'email-repeat',
-
-            ]);
-            $kontaktForm->handleRequest($request);
-
-        }
+        ]);
+        $kontaktForm->handleRequest($request);
 
 
         if ($kontaktForm->isSubmitted()) {
+
+            $daten = $kontaktForm->getData();
+            $event_id = $event->getId();
+            $event_bez = $event->getName();
+            $datum = $event->getDatum();
+
+            $teilnehmen = $daten->username;
+            $anmeldemail = ($daten['Email']);
+            $anmeldename = $kontaktForm->getData()['name'];
 
             //entity Manager anmeldung eintragen
             $anmeldung->setEventNr($id_nr);
@@ -83,6 +73,25 @@ class AnmeldungController extends AbstractController
             $event->setAnzahl($anzahl - $anmeldung->getTeilnehmer());
             $em->persist($event);
             $em->flush();
+
+            $email = (new TemplatedEmail())
+                ->from('anmeldung@pec-weissach.com')
+                ->to('anmeldung@pec-weissach.com')
+                ->subject('Anmeldung über die Webseite')
+                ->htmlTemplate('mailer/anmeldung.html.twig')
+                ->context([
+                    'name' => $anmeldename,
+                    'mail' => $anmeldemail,
+                    'teilnehmer' => $teilnehmen,
+                    'datum' => $datum,
+                    'event' => $event_bez,
+                    'id' => $event_id,
+
+
+                ]);
+
+            $mailer->send($email);
+            $this->addFlash('nachricht', 'Nachricht wurde versendet');
 
             $this->addFlash('nachricht', $name . ' wurde angenommen.');
 

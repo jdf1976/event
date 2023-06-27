@@ -17,6 +17,7 @@
                 <th>Bild</th>
                 <th>Anzahl</th>
                 <th>Hinweis</th>
+                <th>Code</th>
                 <th>actions</th>
             </tr>
             </thead>
@@ -31,6 +32,7 @@
                     <td>{{ event.bild }}</td>
                     <td>{{ event.anzahl }}</td>
                     <td>{{ event.hinweis }}</td>
+                    <td>{{ event.code }}</td>
                     <td>
                         <div class="btn-block">
                             <a class="btn btn-outline-primary btn-block" type="button" href="{{ path('app_event_crud_show', {'id': event.id}) }}">Anzeigen</a>

@@ -1,0 +1,23 @@
+
+{%  apply inline_css %}
+    <style>
+        h3{
+            color: #007bff;
+        }
+        div{
+            border: #007bff 2px;
+        }
+    </style>
+<h3>Nachricht von PEC-Weissach.com</h3>
+
+<ul>
+    <li>Kontakt Name: {{ name }}</li>
+    <li>Kontakt E-Mail: {{ mail  }}</li>
+    <li>KAnzahl Teilnehmer: {{ teilnehmer  }}</li>
+    <li>Datum: {{ datum  }}</li>
+    <li>Eventl: {{ event  }}</li>
+</ul>
+
+<div style="border: #007bff"><p>{{ text }}</p></div>
+
+{%  endapply %}
