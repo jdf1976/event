@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>PEC | Zukunft gesatalten</title>
+    <title>PEC | Zukunft gestalten</title>
     <meta charset="UTF-8">
-    <meta name="description" content="PEC Zukunft gestalten">
-    <meta name="keywords" content="Energie, Sparen, Umweltschonen, Erneuerbare">
+    <meta name="description" content="PEC Pfeiffer Energie Campus | Zukunft gestalten">
+    <meta name="keywords" content="Energie, sparen, umweltschonen, Erneuerbare">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.ico') }}" rel="shortcut icon"/>
 
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
-          rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
@@ -38,13 +35,15 @@
     <div class="loader"></div>
 </div>
 
+{{ render_esi(path('ch_cookie_consent.show', { 'locale' : 'de' })) }}
+
 
 <!-- Header section -->
 <header class="header-section clearfix">
 
 
-            <a href="{{ path('home') }}" class="site-logo text-white">
-                <img src="{{ asset('/img/PEC.png') }}" alt=""> | Pfeiffer Energie Campus</a>
+    <a href="{{ path('home') }}" class="site-logo text-white">
+        <img src="{{ asset('/img/PEC.png') }}" alt=""> | Pfeiffer Energie Campus</a>
 
 
     <div class="header-right">
@@ -122,6 +121,7 @@
                             <h2>Info´s</h2>
                             <ul>
                                 <li><a href="{{ path('app_datenschutz') }}">Datenschutz</a></li>
+                                <li><a href="{{ path('app_bildnachweise') }}">Bildnachweis</a></li>
                                 <li><a href="{{ path('app_impressum') }}">Impressum</a></li>
                             </ul>
                         </div>

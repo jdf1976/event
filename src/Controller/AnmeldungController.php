@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Mailer\MailerInterface;
 
 class AnmeldungController extends AbstractController
 {
@@ -25,7 +26,7 @@ class AnmeldungController extends AbstractController
     }
 
     #[Route('/anmelden/{id}', name: 'app_anmelden')]
-    public function anmelden($id, EventRepository $eventRepository, Request $request, ManagerRegistry $doctrine)
+    public function anmelden($id, EventRepository $eventRepository, Request $request, ManagerRegistry $doctrine, MailerInterface $mailer)
     {
         $anmeldung = new Anmeldung();
 
@@ -37,7 +38,7 @@ class AnmeldungController extends AbstractController
         $code = $event->getCode();
 
 
-        $kontaktForm = $this->createForm(AnmeldenType::class, $anmeldung, [
+        $anmeldeForm = $this->createForm(AnmeldenType::class, $anmeldung, [
             // Time protection
             'antispam_time' => true,
             'antispam_time_min' => 10, // seconds
@@ -49,19 +50,19 @@ class AnmeldungController extends AbstractController
             'antispam_honeypot_field' => 'email-repeat',
 
         ]);
-        $kontaktForm->handleRequest($request);
+        $anmeldeForm->handleRequest($request);
 
 
-        if ($kontaktForm->isSubmitted()) {
+        if ($anmeldeForm->isSubmitted()) {
 
-            $daten = $kontaktForm->getData();
+            $daten = $anmeldeForm->getData();
             $event_id = $event->getId();
             $event_bez = $event->getName();
             $datum = $event->getDatum();
 
-            $teilnehmen = $daten->username;
+            $teilnehmen = ($daten['username']);
             $anmeldemail = ($daten['Email']);
-            $anmeldename = $kontaktForm->getData()['name'];
+            $anmeldename = $anmeldeForm->getData()['name'];
 
             //entity Manager anmeldung eintragen
             $anmeldung->setEventNr($id_nr);
@@ -99,7 +100,7 @@ class AnmeldungController extends AbstractController
 
         }
         return $this->render('anmeldung/index.html.twig', [
-            'anmeldeForm' => $kontaktForm->createView(),
+            'anmeldeForm' => $anmeldeForm->createView(),
             'id' => $id_nr,
             'name' => $name,
             'anzahl' => $anzahl

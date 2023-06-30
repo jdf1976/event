@@ -9,12 +9,12 @@
         </div>
     {% endfor %}
 
-
+<div class="container">
     <!-- Playlist section -->
     <section class="playlist-section spad">
         <div class="container-fluid">
             <div class="section-title">
-                <h2>Events</h2>
+                <h2>Unsere Event´s</h2>
             </div>
             <div class="container">
                 <ul class="playlist-filter controls">
@@ -40,15 +40,15 @@
                             <div class="col">
                                 <div class="card">
                                     <img src="{{ asset('bilder/' ~ event.bild) }}" alt="">
-                                    <div class="card-body text-left">
-                                        <h5 class="card-title text-left">{{ event.name }}</h5>
+                                    <div class="card-body text-left small">
+                                        <p class="card-title text-left">{{ event.name }}</p>
                                     </div>
                                     {% if event.hinweis == not null %}
-                                        <div class="alert alert-danger">
-                                            <h3>{{ event.hinweis }}</h3>
+                                        <div class="alert alert-danger small">
+                                            <small>{{ event.hinweis }}</small>
                                         </div>
                                     {% endif %}
-                                    <div class="card-footer">
+                                    <div class="card-footer small">
                                         <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }}
                                             um: {{ event.zeit }} Uhr</small>
                                         <br>
@@ -75,4 +75,5 @@
         </div>
     </section>
     <!-- Playlist section end -->
+</div>
 {% endblock %}
