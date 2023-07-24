@@ -9,71 +9,134 @@
         </div>
     {% endfor %}
 
-<div class="container">
-    <!-- Playlist section -->
-    <section class="playlist-section spad">
-        <div class="container-fluid">
-            <div class="section-title">
-                <h2>Unsere Event´s</h2>
-            </div>
-            <div class="container">
-                <ul class="playlist-filter controls">
-                    <li class="control text-primary" data-filter=".Energie">Energie</li>
-                    <li class="control text-secondary" data-filter=".Wärmepumpe">Wärmepumpe</li>
-                    <li class="control text-primary" data-filter=".SmartHome">Smart Home</li>
-                    <li class="control text-secondary" data-filter=".Wasserhygiene">Wasserhygiene</li>
-                    <li class="control text-primary" data-filter=".Vortrag">Vortrag</li>
-                    <li class="control text-secondary" data-filter=".Brandschutz">Brandschutz</li>
-                    <li class="control text-primary" data-filter=".Energieberatung">Energieberatung</li>
-                    <li class="control text-secondary" data-filter=".Sanierung">Sanierung</li>
-                    <li class="control text-primary" data-filter=".Produktvorstellung">Produktvorstellung</li>
-                    <li class="control text-secondary" data-filter="all">Alles</li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row playlist-area">
+    <link rel="stylesheet" href="{{ asset('/assets/css/plugins/animate.css') }}">
+    <!-- Slick slider css -->
+    <link rel="stylesheet" href="{{ asset('/assets/css/plugins/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/plugins/odometer.min.css') }}">
+     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
 
-                {% for event in events %}
 
-                    <div class="mix col-lg-3 col-md-4 col-sm-6 {{ event.kategorie }}">
-                        <div class="playlist-item">
-                            <div class="col">
-                                <div class="card">
-                                    <img src="{{ asset('bilder/' ~ event.bild) }}" alt="">
-                                    <div class="card-body text-left small">
-                                        <p class="card-title text-left">{{ event.name }}</p>
-                                    </div>
-                                    {% if event.hinweis == not null %}
-                                        <div class="alert alert-danger small">
-                                            <small>{{ event.hinweis }}</small>
-                                        </div>
-                                    {% endif %}
-                                    <div class="card-footer small">
-                                        <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }}
-                                            um: {{ event.zeit }} Uhr</small>
-                                        <br>
-                                        {% if event.anzahl <= 5 %}
-                                            <small class="text-danger font-weight-bold">noch: {{ event.anzahl }}/20 Plätzen frei</small>
-                                        {% elseif event.anzahl <=10 %}
-                                            <small class="text-warning font-weight-bold">noch: {{ event.anzahl }}/20 Plätzen frei</small>
+    <div class="container">
+
+        <!-- Playlist section -->
+        <section class="playlist-section spad">
+            <h2>Unsere Event´s</h2>
+            <div class="container-fluid">
+
+                <div class="container">
+                    <ul class="playlist-filter controls">
+                        <li class="control text-primary" data-filter=".Energie">Energie</li>
+                        <li class="control text-secondary" data-filter=".Wärmepumpe">Wärmepumpe</li>
+                        <li class="control text-primary" data-filter=".SmartHome">Smart Home</li>
+                        <li class="control text-secondary" data-filter=".Wasserhygiene">Wasserhygiene</li>
+                        <li class="control text-primary" data-filter=".Special-Event">Special Events</li>
+                        <li class="control text-secondary" data-filter=".Brandschutz">Brandschutz</li>
+                        <li class="control text-primary" data-filter=".Energieberatung">Energieberatung</li>
+                        <li class="control text-secondary" data-filter=".Sanierung">Sanierung</li>
+                        <li class="control text-secondary" data-filter="all">Alles</li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row playlist-area">
+
+                    {% for event in events %}
+
+                        <div class="mix col-lg-3 col-md-4 col-sm-6 {{ event.kategorie }} rounded border border-5 m-2">
+
+                            <h6 class="text-primary mb-3 mt-3">{{ event.name }}</h6>
+                            <div class="team-member">
+                                <div class="team-member__thumb rounded-5">
+                                    <img src="{{ asset('bilder/' ~ event.bild) }}" alt="thumbnail" class="rounded">
+                                </div>
+                                <div class="team-member__content">
+                                    <h6 class="desg">{{ event.datum|date("d.m.y") }}</h6>
+                                    <h5 class="desg">{{ event.zeit }} Uhr</h5>
+
+                                    <p>{% if event.hinweis == not null %}
+
+                                    <h5 class="text-warning">{{ event.hinweis }}</h5>
+
+                                    {% endif %}</p>
+                                    <div class="">
+                                        {% if event.anzahl <= 0 %}
+                                            <a href="#" class="btn btn-outline-secondary">BELEGT</a>
                                         {% else %}
-                                            <small class="text-primary font-weight-bold">noch: {{ event.anzahl }}/20 Plätzen frei</small>
+                                            <a class="btn btn-outline-secondary mb-2"
+                                               href="{{ path('app_anmelden', {id: event.id}) }}">Anmelden</a>
                                         {% endif %}
+                                        <a class="btn btn-outline-secondary"
+                                           href="{{ path('event.anzeigen', {id: event.id}) }}">weitere Info´s</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-slider-btn">
+                                {% if event.anzahl <=0 %}
+                                    <small class="text-danger font-weight-bold">BELEGT</small>
+                                {% elseif event.anzahl <= 5 %}
+                                    <small class="text-danger font-weight-bold">noch: {{ event.anzahl }}/20
+                                        Plätzen frei</small>
+                                {% elseif event.anzahl <=10 %}
+                                    <small class="text-warning font-weight-bold">noch: {{ event.anzahl }}/20
+                                        Plätzen frei</small>
+                                {% else %}
+                                    <small class="text-primary font-weight-bold">noch: {{ event.anzahl }}/20
+                                        Plätzen frei</small>
+                                {% endif %}
+                            </div>
+                            <p>
 
-                                        <br>
-                                        <a class="btn btn-outline-primary mt-2"
-                                           href="{{ path('app_anmelden', {id: event.id}) }}">Anmelden</a>
+                                Am: {{ event.datum|date("d.m.y") }} | Um: {{ event.zeit }} Uhr<br>
+                                Referent: <a href="{{ path('app_referenten') }}">{{ event.ref }}</a>
+                            </p>
+
+                        </div>
+
+
+                        <!--
+                        <div class="mix col-lg-3 col-md-4 col-sm-6 {{ event.kategorie }}">
+                            <div class="playlist-item">
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="{{ asset('bilder/' ~ event.bild) }}" alt="">
+                                        <div class="card-body text-left small">
+                                            <p class="card-title text-left">{{ event.name }}</p>
+                                        </div>
+                                        {% if event.hinweis == not null %}
+                                            <div class="alert alert-danger small">
+                                                <small>{{ event.hinweis }}</small>
+                                            </div>
+                                        {% endif %}
+                                        <div class="card-footer small">
+                                            <small class="text-body-secondary">Beginn: {{ event.datum|date("d.m.y") }}
+                                                um: {{ event.zeit }} Uhr</small>
+                                            <br>
+                                            {% if event.anzahl <= 5 %}
+                                                <small class="text-danger font-weight-bold">noch: {{ event.anzahl }}/20
+                                                    Plätzen frei</small>
+                                            {% elseif event.anzahl <=10 %}
+                                                <small class="text-warning font-weight-bold">noch: {{ event.anzahl }}/20
+                                                    Plätzen frei</small>
+                                            {% else %}
+                                                <small class="text-primary font-weight-bold">noch: {{ event.anzahl }}/20
+                                                    Plätzen frei</small>
+                                            {% endif %}
+
+                                            <br>
+                                            <a class="btn btn-outline-primary mt-2"
+                                               href="{{ path('app_anmelden', {id: event.id}) }}">Anmelden</a>
+                                            <a class="btn btn-outline-secondary mt-2"
+                                               href="{{ path('event.anzeigen', {id: event.id}) }}">Info</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+-->
+                    {% endfor %}
+                    </p>
 
-                {% endfor %}
-            </div>
-
-        </div>
-    </section>
-    <!-- Playlist section end -->
-</div>
+                </div>
+        </section>
+        <!-- Playlist section end -->
+    </div>
 {% endblock %}

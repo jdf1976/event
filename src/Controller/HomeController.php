@@ -14,11 +14,12 @@ class HomeController extends AbstractController
     {
 
         $events = $ev->findAll();
-        $zufall = array_rand($events, 2);
+        $zufall = array_rand($events, 3);
 
         return $this->render('home/index.html.twig', [
             'event1' => $events[$zufall[0]],
             'event2' => $events[$zufall[1]],
+            'event3' => $events[$zufall[2]],
         ]);
     }
 }

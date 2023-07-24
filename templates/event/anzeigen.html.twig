@@ -3,9 +3,39 @@
 {% block title %}Hello anlegen!{% endblock %}
 
 {% block body %}
-<br>
-    <div class="container">
-        <h1>{{ events.name }}</h1>
-        <img src="{{ asset('bilder/' ~ events.bild) }}">
+
+    <div class="container-sm">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="card mb-5 ">
+                <img src="{{ asset('bilder/' ~ events.bild) }}" class="rounded img-thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">{{ events.name }}</h5>
+                    <p class="card-text">{{ events.beschreibung|raw }}</p>
+
+                </div>
+                <div class="card" >
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Am: {{ events.datum|date("d.m.y") }}</li>
+                        <li class="list-group-item">Um: {{ events.zeit }} Uhr</li>
+                        <li class="list-group-item">Freie Plätze: {{ events.anzahl }}</li>
+                        {% if events.hinweis == not null %}
+                            <li class="list-group-item text-danger">{{ events.hinweis }}
+                                {% if events.code == not null %}
+                                    <br> <small>CODE FÜR ANMELDUNG BENÖTIGT</small>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-outline-primary mt-2"
+                       href="{{ path('app_anmelden', {id: events.id}) }}">Anmelden</a>
+                    <a class="btn btn-outline-primary mt-2" href="{{ path('app_menu') }}">Zurück</a>
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
     </div>
 {% endblock %}

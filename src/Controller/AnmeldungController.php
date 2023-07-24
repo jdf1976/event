@@ -9,6 +9,8 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,6 +38,9 @@ class AnmeldungController extends AbstractController
         $name = $event->getName();
         $anzahl = $event->getAnzahl();
         $code = $event->getCode();
+        if(!empty($event->getCode())) {
+            $anmeldung->setIsSpecialEvent(true);
+        }
 
 
         $anmeldeForm = $this->createForm(AnmeldenType::class, $anmeldung, [
@@ -52,17 +57,44 @@ class AnmeldungController extends AbstractController
         ]);
         $anmeldeForm->handleRequest($request);
 
+        if ($anmeldeForm->isSubmitted() && $anmeldeForm->isValid()) {
 
-        if ($anmeldeForm->isSubmitted()) {
-
+            /** @var Anmeldung $daten */
             $daten = $anmeldeForm->getData();
+            $errorCounter = 0;
+            if ($daten->isSpecialEvent()) {
+                if($event->getCode() != $daten->getCode()) {
+                    $error = new FormError("Code ist falsch");
+                    $anmeldeForm->get('code')->addError($error);
+                    $errorCounter++;
+                }
+            }
+
+            if (!$daten->isDatenschutz()) {
+                $error = new FormError("Bitte Datenschutz akzeptieren");
+                $anmeldeForm->get('datenschutz')->addError($error);
+                $errorCounter++;
+            }
+
+            if (!$daten->isFoto()) {
+                $error = new FormError("Bitte Einwilligung für Bilder akzeptieren");
+                $anmeldeForm->get('foto')->addError($error);
+                $errorCounter++;
+            }
+
+            if($errorCounter > 0) {
+                return $this->formRender($anmeldeForm, $id_nr, $name, $anzahl);
+            }
+
+
             $event_id = $event->getId();
             $event_bez = $event->getName();
             $datum = $event->getDatum();
 
-            $teilnehmen = ($daten['username']);
-            $anmeldemail = ($daten['Email']);
-            $anmeldename = $anmeldeForm->getData()['name'];
+            $teilnehmer = $daten->getTeilnehmer();
+            $anmeldemail = $daten->getEmail();
+            $anmeldename = $daten->getName();
+            $zeit = $event->getZeit();
 
             //entity Manager anmeldung eintragen
             $anmeldung->setEventNr($id_nr);
@@ -83,15 +115,33 @@ class AnmeldungController extends AbstractController
                 ->context([
                     'name' => $anmeldename,
                     'mail' => $anmeldemail,
-                    'teilnehmer' => $teilnehmen,
+                    'teilnehmer' => $teilnehmer,
                     'datum' => $datum,
                     'event' => $event_bez,
                     'id' => $event_id,
-
-
+                    'zeit' => $zeit,
                 ]);
 
             $mailer->send($email);
+
+            $email = (new TemplatedEmail())
+                ->from('anmeldung@pec-weissach.com')
+                ->to($anmeldemail)
+                ->subject('Anmeldung über die Webseite')
+                ->htmlTemplate('mailer/anmeldung.html.twig')
+                ->context([
+                    'name' => $anmeldename,
+                    'mail' => $anmeldemail,
+                    'teilnehmer' => $teilnehmer,
+                    'datum' => $datum,
+                    'event' => $event_bez,
+                    'id' => $event_id,
+                    'zeit' => $zeit,
+                ]);
+
+            $mailer->send($email);
+
+
             $this->addFlash('nachricht', 'Nachricht wurde versendet');
 
             $this->addFlash('nachricht', $name . ' wurde angenommen.');
@@ -99,13 +149,18 @@ class AnmeldungController extends AbstractController
             return $this->redirect($this->generateUrl('app_menu'));
 
         }
+        return $this->formRender($anmeldeForm, $id_nr, $name, $anzahl);
+
+
+    }
+
+
+    public function formRender(FormInterface $anmeldeForm, int $id = null, string $name, int $anzahl) {
         return $this->render('anmeldung/index.html.twig', [
             'anmeldeForm' => $anmeldeForm->createView(),
-            'id' => $id_nr,
+            'id' => $id,
             'name' => $name,
             'anzahl' => $anzahl
         ]);
-
-
     }
 }

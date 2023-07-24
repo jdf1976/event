@@ -1,0 +1,221 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReferentenController!{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('/assets/css/plugins/animate.css') }}">
+    <!-- Slick slider css -->
+    <link rel="stylesheet" href="{{ asset('/assets/css/plugins/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/plugins/odometer.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+
+    <!-- team member area start -->
+    <section class="team-area section-padding--ptb_110">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title section-title__style-4 text-center">
+                        <h2 class="title h1">Unsere <span>Referenten</span></h2>
+                        <h6 class="subtitle">Hier können Sie sich über alle unsere Referenten informieren.</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row mtn-30">
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/joerg.png') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Leiter Abteilung Elektro / Smart Home</h6>
+                            <h5 class="name">Jörg Daniel Fluck</h5>
+                            <p class="text-referenten small">20 Jahre Erfahrung im Bereich Elektro und Smart Home
+                                anwendungen. </p>
+                            <div class="social">
+                                <a href="https://www.facebook.com/pfeiffer.heizung.sanitaer.elektro.fliesen"><i
+                                            class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/pfeiffer_gmbh/"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/heger.png') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Senior Sales Engineer</h6>
+                            <h5 class="name">Ralf Heger</h5>
+                            <p class="text-referenten small">57 Jahre alt<br>
+                                Staatl. geprüfter Heizungs- Lüftungs- und Klimatechniker<br>
+                                Staatl. geprüfter Betriebswirt (IHK)<br>
+                                seit 16 Jahren bei Grundfos im Außendienst<br>
+                            </p>
+                            <div class="social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/spector.png') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Projektmanagement</h6>
+                            <h5 class="name">Arvid Spektor B.A.</h5>
+                            <p class="small text-referenten">Über 20 Jahre Erfahrung in der Lichtbranche, mit besonderem
+                                Schwerpunkt auf technischer Beleuchtung (Innen- und Außenbereich). Seit 2008 bei TRILUX
+                                tätig, mit verschiedenen Rollen im Außendienst seit 2011, einschließlich
+                                Großhandelsbetreuer für Baden-Württemberg (2011-2013), Installateurbetreuer (2013-2017)
+                                und aktuell als Area Sales Manager für die Region Stuttgart seit 2017.
+                            </p>
+                            <div class="social">
+                                <a href="https://de-de.facebook.com/TRILUXDeutschland"><i
+                                            class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/trilux_deutschland/?hl=de"><i
+                                            class="fa fa-instagram"></i></a>
+                                <a href="https://de.linkedin.com/company/trilux-digital-solutions-gmbh"><i
+                                            class="fa fa-linkedin"></i></a>
+                                <a href="https://twitter.com/trilux"><i class="fa fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/mueck.png') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Installateur- und Heizungsbaumeister</h6>
+                            <h5 class="name">Kristopher Mück</h5>
+                            <p class="text-referenten small">Anfang 2019 Weiterbildung zum Energieberater (HWK).
+                                Mehrjährige Tätigkeit im Bereich der Heizungssanierung und Photovoltaiktechnik.
+                            </p>
+                            <div class="social">
+                                <a href="https://www.instagram.com/mr_energieoptimierung/"><i
+                                            class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/weller.png') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Selbständiger Büchsenmacher</h6>
+                            <h5 class="name">Sven Weller</h5>
+                            <p>Text folgt</p>
+                            <div class="social">
+                                <a href="https://www.facebook.com/waffenhandelweller"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/waffenhandelweller/"><i class="fa fa-instagram"></i></a>
+                                <a href="https://waffenhandel-weller.de/"><i class="fa fa-home"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/micha.png') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Geschäftsführer Pfeiffer Gmbh & Co. KG</h6>
+                            <h5 class="name">Michael Pfeiffer</h5>
+                            <p>Der Energie-Seelsorger</p>
+                            <div class="social">
+                                <a href="https://www.facebook.com/pfeiffer.heizung.sanitaer.elektro.fliesen"><i
+                                            class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/pfeiffer_gmbh/"><i class="fa fa-instagram"></i></a>
+                                <a href="https://pfeiffer-gmbh.com/"><i class="fa fa-home"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/missel.jpg') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Kolektor Insulation GmbH</h6>
+                            <h5 class="name">Maximilian Menden</h5>
+                            <p>Technischer Vertrieb</p>
+                            <div class="social">
+                                <a href="https://www.facebook.com/kolektor.insulation/"><i
+                                            class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/kolektor.insulation/"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/18188808"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://www.kolektor-insulation.com/de/"><i class="fa fa-home"></i></a>
+                                <a href="https://www.xing.com/pages/kolektorinsulationgmbh"><i
+                                            class="fa fa-xing"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/bilder/team/stuhlmann.png') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Rechtsanwalt</h6>
+                            <h5 class="name">Gunnar Stuhlmann</h5>
+                            <p>
+                            <ul>
+                                <li>Studium an der Eberhard Karls Universität Tübingen</li>
+                                <li>Kanzleiinhaber seit 1997</li>
+                            </ul>
+                            </p>
+                            <div class="social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--
+                <div class="col-md-4 col-sm-6 mt-30">
+                    <div class="team-member">
+                        <div class="team-member__thumb">
+                            <img src="{{ asset('/assets/img/team/team-9.jpg') }}" alt="team thumbnail">
+                        </div>
+                        <div class="team-member__content">
+                            <h6 class="desg">Head Of Idea</h6>
+                            <h5 class="name">Tasnim</h5>
+                            <p>It is a long established fact that a reader will be distracted by the readaible is an
+                                content of the page when</p>
+                            <div class="social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+    <!-- team member area end -->
+
+
+{% endblock %}

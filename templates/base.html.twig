@@ -12,10 +12,10 @@
 
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('/css/slicknav.min.css') }}"/>
 
 
     <!-- Main Stylesheets -->
@@ -27,15 +27,18 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="b3906e39-976b-4d56-aa42-a6bd0dff8513"
+            data-blockingmode="auto" type="text/javascript"></script>
+
 </head>
 
 <body>
-<!-- Page Preloder -->
+<!-- Page Preloaded -->
 <div id="preloder">
     <div class="loader"></div>
 </div>
 
-{{ render_esi(path('ch_cookie_consent.show', { 'locale' : 'de' })) }}
+
 
 
 <!-- Header section -->
@@ -43,7 +46,7 @@
 
 
     <a href="{{ path('home') }}" class="site-logo text-white">
-        <img src="{{ asset('/img/PEC.png') }}" alt=""> | Pfeiffer Energie Campus</a>
+        <img src="{{ asset('/img/logo_pec-pfeiffer-energie-campus_klein.png') }}" alt=""></a>
 
 
     <div class="header-right">
@@ -60,7 +63,8 @@
     <ul class="main-menu">
         <li><a href="{{ path('home') }}">Willkommen</a></li>
         <li><a href="{{ path('app_menu') }}">Events</a></li>
-        <li><a href="{{ path('app_unternehmen') }}">über uns</a></li>
+        <li><a href="{{ path('app_referenten') }}">Referenten</a></li>
+        <li><a href="{{ path('app_unternehmen') }}">Über Uns</a></li>
         <li><a href="{{ path('app_kontakt') }}">Kontakt</a></li>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li><a href="#">Mitarbeiter</a>
@@ -94,7 +98,7 @@
             </div>
             <div class="col-lg-6">
                 <p class="text-capitalize font-weight-bold">»Man schafft niemals Veränderung, indem man das Bestehende
-                    bekämpft. Um etwas zu verändern, baut man Modelle, die das Alte überflüssig machen. «</p>
+                    bekämpft. Um etwas zu verändern, baut man Modelle, die das Alte überflüssig machen.«</p>
             </div>
         </div>
     </div>
@@ -156,6 +160,17 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/mixitup.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+
+<!--
+<script src="{{ asset('/assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+<script src="{{ asset('/assets/js/plugins/wow.min.js') }}"></script>
+<script src="{{ asset('/assets/js/plugins/odometer.min.js') }}"></script>
+<script src="{{ asset('/assets/js/plugins/appear.min.js') }}"></script>
+<script src="{{ asset('/assets/js/main.js') }}"></script>
+<script src="{{ asset('/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('/assets/js/vendor/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/assets/js/plugins/slick.min.js') }}"></script>
+-->
 
 </body>
 </html>

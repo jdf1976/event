@@ -5,19 +5,24 @@
 .header-section{
 
     color: #FFFFFF !important;
-    background-image: url("../img/hintergrund_rot.jpg") !important;
+    background-image: url("../img/bg_header.png") !important;
 
+}
+
+
+.hero-img {
+    background-image: url("../img/shutterstock_2135994919.jpg") !important;
 }
 
 .footer-section{
     background: #FFFFFF !important;
 }
 .main-menu li a{
-    color: #FFFFFF !important;
+    color: rgba(0, 0, 0, 0.97) !important;
 }
 
 .header-section a{
-    color: #FFFFFF !important;
+    color: rgba(5, 5, 5, 0.97) !important;
 }
 
 .footer-widget h2{
@@ -41,4 +46,8 @@
 
 .sub-menu li a{
     color: #000000 !important;
+}
+
+.text-referenten {
+    color: #FFFFFF !important;
 }

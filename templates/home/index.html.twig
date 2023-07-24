@@ -3,70 +3,159 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <!-- Hero section -->
-    <section class="hero-section mt-5">
-        <div class="hero-slider owl-carousel">
-            <div class="hs-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hs-text">
-                                <h2><span>{{ event1.name }}</span></h2>
+
+
+    <div class="container justify-content-center">
+        <div class="row justify-content-center mt-5 mb-5">
+
+            <div class="" style="width: 10rem;">
+                <img src="{{ asset('/img/icon_privatpersonen_pec-pfeiffer-energie-campus_pfeiffer-heizung-sanitaer-elektro.svg') }}"
+                     class="img-thumbnail border-0" alt="...">
+                <div class="">
+                    <p class="card-text">Privatpersonen</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="width: 10rem;">
+                <img src="{{ asset('/img/icon_vermieter_pec-pfeiffer-energie-campus_pfeiffer-heizung-sanitaer-elektro.svg') }}"
+                     class="img-thumbnail border-0" alt="...">
+                <p class="card-text">Vermieter</p>
+            </div>
+
+            <div class="text-center" style="width: 10rem;">
+                <img src="{{ asset('/img/icon_firmen_pec-pfeiffer-energie-campus_pfeiffer-heizung-sanitaer-elektro.svg') }}"
+                     class="img-thumbnail border-0" alt="...">
+                <p class="card-text">Firmen</p>
+            </div>
+
+            <div class="text-center" style="width: 10rem;">
+                <img src="{{ asset('/img/icon_wohnungseigentuemergemeinschaft_pec-pfeiffer-energie-campus_pfeiffer-heizung-sanitaer-elektro.svg') }}"
+                     class="img-thumbnail border-0" alt="...">
+                <p class="card-text">WEGs</p>
+            </div>
+
+            <div class="text-center" style="width: 11rem;">
+                <img src="{{ asset('/img/icon_hausverwalter_pec-pfeiffer-energie-campus_pfeiffer-heizung-sanitaer-elektro.svg') }}"
+                     class="img-thumbnail border-0" alt="...">
+                <p class="card-text">Hausverwalter</p>
+            </div>
+
+            <div class="text-center" style="width: 10rem;">
+                <img src="{{ asset('/img/icon_kommunen_pec-pfeiffer-energie-campus_pfeiffer-heizung-sanitaer-elektro.svg') }}"
+                     class="img-thumbnail border-0" alt="...">
+                <p class="card-text">Kommunen</p>
+            </div>
+        </div>
+
+        <div class="content m-5" style="background-image: url('{{ asset('/img/shutterstock_2135994919.jpg') }}')">
+            <div class="row justify-content-center">
+                    <img class="m-5" src="{{ asset('/img/logo_pec-pfeiffer-energie-campus_pfeiffer-heizung-sanitaer-elektro.png') }}">
+            </div>
+            <div class="row justify-content-center">
+                <h2 class="mb-5">Vorträge - Seminare - Ausstellung</h2>
+
+            </div>
+
+
+
+
+        </div>
+
+
+            <div class="row mb-5">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{{ asset('bilder/'~ event1.bild) }}" class="card-img-top img-thumbnail" alt="...">
+                            <h5 class="card-title">{{ event1.name }}</h5>
+                            <p class="card-text">
                                 {% if event1.anzahl <= 5 %}
-                                    <div><h5 class="font-weight-bold text-danger">ACHTUNG nur noch {{ event1.anzahl }}
-                                            Plätze frei!</h5></div>
-                                {% elseif event1.anzahl <= 10 %}
-                                    <div><h5 class="font-weight-bold text-warning">nur noch {{ event1.anzahl }} Plätze
-                                            frei!</h5></div>
-                                {% else %}
-                                    <div><h5 class="font-weight-bold text-primary">noch {{ event1.anzahl }} Plätze
-                                            frei!</h5></div>
-                                {% endif %}
-                                <a class="site-btn mt-3" href="{{ path('app_anmelden', {id: event1.id}) }}">Anmelden</a>
-                                <a class="site-btn sb-c2 mt-3" href="{{ path('app_menu', {id: event2.id}) }}">alle Event´s</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="hr-img">
-                                <img src="{{ asset('bilder/'~ event1.bild) }}" alt="">
-                            </div>
+                            <h5 class="font-weight-bold text-danger">ACHTUNG nur noch {{ event1.anzahl }}
+                                Plätze frei!</h5>
+                            {% elseif event1.anzahl <= 10 %}
+                                <h5 class="font-weight-bold text-warning">nur noch {{ event1.anzahl }} Plätze
+                                    frei!</h5>
+                            {% else %}
+                                <h5 class="font-weight-bold text-primary">noch {{ event1.anzahl }} Plätze
+                                    frei!</h5>
+                            {% endif %}
+
+                            </p>
+                            <p class="card-text">
+                                <small class="text-body-secondary">
+                                    <a class="site-btn mt-3"
+                                       href="{{ path('app_anmelden', {id: event1.id}) }}">Anmelden</a>
+                                    <a class="site-btn sb-c2 mt-3" href="{{ path('app_menu', {id: event1.id}) }}">alle
+                                        Event´s</a>
+                                </small>
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="hs-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hs-text">
-                                <h2><span>{{ event2.name }}</span></h2>
-                                {% if event2.anzahl <= 5 %}
-                                    <div><h5 class="font-weight-bold text-danger">ACHTUNG nur noch {{ event2.anzahl }}
-                                            Plätze noch frei!</h5></div>
-                                {% elseif event2.anzahl <= 10 %}
-                                    <div><h5 class="font-weight-bold text-warning">nur noch {{ event2.anzahl }} Plätze
-                                            frei!</h5></div>
-                                {% else %}
-                                    <div><h5 class="font-weight-bold text-primary">noch {{ event2.anzahl }} Plätze
-                                            frei!</h5></div>
-                                {% endif %}
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{{ asset('bilder/'~ event2.bild) }}" class="card-img-top img-thumbnail" alt="...">
+                            <h5 class="card-title">{{ event2.name }}</h5>
+                            <p class="card-text">
 
-                                <a class="site-btn mt-3" href="{{ path('app_anmelden', {id: event2.id}) }}">Anmelden</a>
-                                <a class="site-btn sb-c2 mt-3" href="{{ path('app_menu', {id: event2.id}) }}">alle Event´s</a>
+                                {% if event1.anzahl <= 5 %}
+                            <h5 class="font-weight-bold text-danger">ACHTUNG nur noch {{ event2.anzahl }}
+                                Plätze frei!</h5>
+                            {% elseif event1.anzahl <= 10 %}
+                                <h5 class="font-weight-bold text-warning">nur noch {{ event2.anzahl }} Plätze
+                                    frei!</h5>
+                            {% else %}
+                                <h5 class="font-weight-bold text-primary">noch {{ event2.anzahl }} Plätze
+                                    frei!</h5>
+                            {% endif %}
 
-                            </div>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-body-secondary">
+                                    <a class="site-btn mt-3"
+                                       href="{{ path('app_anmelden', {id: event1.id}) }}">Anmelden</a>
+                                    <a class="site-btn sb-c2 mt-3" href="{{ path('app_menu', {id: event1.id}) }}">alle
+                                        Event´s</a>
+                                </small>
+                            </p>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="hr-img">
-                                <img src="{{ asset('bilder/'~ event2.bild) }}" alt="">
-                            </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{{ asset('bilder/'~ event3.bild) }}" class="card-img-top img-thumbnail" alt="...">
+                            <h5 class="card-title">{{ event3.name }}</h5>
+                            <p class="card-text">
+
+                                {% if event1.anzahl <= 5 %}
+                            <h5 class="font-weight-bold text-danger">ACHTUNG nur noch {{ event3.anzahl }}
+                                Plätze frei!</h5>
+                            {% elseif event1.anzahl <= 10 %}
+                                <h5 class="font-weight-bold text-warning">nur noch {{ event3.anzahl }} Plätze
+                                    frei!</h5>
+                            {% else %}
+                                <h5 class="font-weight-bold text-primary">noch {{ event3.anzahl }} Plätze
+                                    frei!</h5>
+                            {% endif %}
+
+                            </p>
+                            <p class="card-text">
+                                <small class="text-body-secondary">
+                                    <a class="site-btn mt-3"
+                                       href="{{ path('app_anmelden', {id: event1.id}) }}">Anmelden</a>
+                                    <a class="site-btn sb-c2 mt-3" href="{{ path('app_menu', {id: event1.id}) }}">alle
+                                        Event´s</a>
+                                </small>
+                            </p>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Hero section end -->
+    </div>
 
 
 {% endblock %}

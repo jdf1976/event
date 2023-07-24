@@ -12,7 +12,7 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-@import url('https://fonts.cdnfonts.com/css/aller');
+
 
 /* montserrat-300 - latin */
 @font-face {
@@ -1607,7 +1607,7 @@ Responsive
 		margin-top: -60px;
 	}
 	.slicknav_nav {
-		background: #1c294a;
+		background: #fdfdfd;
 		margin-bottom: 35px;
 	}
 	.slicknav_nav ul {
@@ -1626,7 +1626,7 @@ Responsive
 	.slicknav_btn {
 		position: relative;
 		top: -24px;
-		background: #1c294a;
+		background: #FFFFFF;
 	}
 	.main-menu {
 		display: none;
@@ -1743,7 +1743,7 @@ Responsive
 		margin-top: -60px;
 	}
 	.slicknav_nav {
-		background: #1c294a;
+		background: #ffffff;
 		margin-bottom: 35px;
 	}
 	.slicknav_nav ul {
@@ -1762,7 +1762,7 @@ Responsive
 	.slicknav_btn {
 		position: relative;
 		top: -24px;
-		background: #1c294a;
+		background: #FFFFFF;
 	}
 	.main-menu {
 		display: none;

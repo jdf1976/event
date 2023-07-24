@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AnmeldungRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AnmeldungRepository::class)]
 class Anmeldung
@@ -14,6 +15,7 @@ class Anmeldung
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Email]
     private ?string $Email = null;
 
     #[ORM\Column(length: 255)]
@@ -36,6 +38,7 @@ class Anmeldung
 
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $code = null;
+    private bool $isSpecialEvent = false;
 
     public function getId(): ?int
     {
@@ -136,5 +139,21 @@ class Anmeldung
         $this->code = $code;
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSpecialEvent(): bool
+    {
+        return $this->isSpecialEvent;
+    }
+
+    /**
+     * @param bool $isSpecialEvent
+     */
+    public function setIsSpecialEvent(bool $isSpecialEvent): void
+    {
+        $this->isSpecialEvent = $isSpecialEvent;
     }
 }

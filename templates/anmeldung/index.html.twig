@@ -7,7 +7,7 @@
         <h3 class="text-secondary pb-5">Anmeldung zum Event</h3>
         <p class="text-primary"> {{ name }} mit der Nummer {{ id }}</p>
         <p class="text-info"> tragen Sie hier ihre Daten zur Anmeldung ein.</p>
-        {{ form(anmeldeForm) }}
+        {{ form(anmeldeForm, {'attr': {'novalidate':'novalidate'}}) }}
     </div>
 
 {% endblock %}

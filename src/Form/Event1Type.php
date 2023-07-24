@@ -21,6 +21,8 @@ class Event1Type extends AbstractType
             ->add('Kategorie')
             ->add('zeit')
             ->add('hinweis')
+            ->add('code')
+            ->add('ref')
         ;
     }
 

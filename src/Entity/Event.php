@@ -41,6 +41,10 @@ class Event
     #[ORM\Column(length: 30, nullable: true)]
     private ?string $code = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ref = null;
+
+
 
     public function getId(): ?int
     {
@@ -55,6 +59,19 @@ class Event
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getRef(): ?string
+    {
+        return $this->ref;
+    }
+
+    public function setRef(string $ref): static
+    {
+
+        $this->ref = $ref;
 
         return $this;
     }

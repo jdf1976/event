@@ -13,7 +13,7 @@ class MenuController extends AbstractController
     public function menu(EventRepository $eventRepository): Response
     {
 
-        $events = $eventRepository->findAll();
+        $events = $eventRepository->findBy(array(), array('datum' => 'ASC'));
 
         return $this->render('menu/index.html.twig', [
             'events' => $events,

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "377b414533810cbbf0b111a7101b0a55",
+    "content-hash": "5e43682675e8e043695411a936e195d3",
     "packages": [
         {
             "name": "connectholland/cookie-consent-bundle",
@@ -1454,16 +1454,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v4.7.0",
+            "version": "v4.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "17562010c5c7d160a5059c7f70b2c7e03f149d40"
+                "reference": "ef10d412109429cf47bb5a406bbba6a256255350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/17562010c5c7d160a5059c7f70b2c7e03f149d40",
-                "reference": "17562010c5c7d160a5059c7f70b2c7e03f149d40",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/ef10d412109429cf47bb5a406bbba6a256255350",
+                "reference": "ef10d412109429cf47bb5a406bbba6a256255350",
                 "shasum": ""
             },
             "require": {
@@ -1536,7 +1536,7 @@
             ],
             "support": {
                 "issues": "https://github.com/EasyCorp/EasyAdminBundle/issues",
-                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.7.0"
+                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.6.6"
             },
             "funding": [
                 {
@@ -1544,7 +1544,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-26T18:40:07+00:00"
+            "time": "2023-05-30T18:19:51+00:00"
         },
         {
             "name": "egulias/email-validator",

@@ -8,16 +8,33 @@
             border: #007bff 2px;
         }
     </style>
-<h3>Nachricht von PEC-Weissach.com</h3>
 
-<ul>
-    <li>Kontakt Name: {{ name }}</li>
-    <li>Kontakt E-Mail: {{ mail  }}</li>
-    <li>KAnzahl Teilnehmer: {{ teilnehmer  }}</li>
-    <li>Datum: {{ datum  }}</li>
-    <li>Eventl: {{ event  }}</li>
-</ul>
+    Hallo {{name}},<br><br>
 
-<div style="border: #007bff"><p>{{ text }}</p></div>
+    Ihre Anmeldung, bei dem Event: {{ event }} wurde erfolgreich übermittelt.<br>
+    Wir freuen uns Sie am {{ datum|date("d.m.y") }}, um {{ zeit }} Uhr, bei uns begrüßen zu dürfen.<br>
+    Bitte kommen Sie an dem Tag zu unserem PEC | Pfeiffer Energie Campus an folgender Adresse:<br>
+    <br>
+    Pfeiffer Gmbh & Co. KG<br>
+    Stuttgarter Str. 61<br>
+    71554 Weissach im Tal<br>
+    <br>
+    Mit freundlichen Grüßen aus dem Weissacher Tal<br>
+    <br>
+    IHR PEC-TEAM<br>
+    <br>
+    <br>
+    <br>
+    Stuttgarter Str. 61<br>
+    71554 Weissach im Tal<br>
+    Tel: 07191-345152-0<br>
+    Fax: 07191-345152-20<br>
+    Info: info@pec-weissach.com<br>
+
+
+
+
+
+
 
 {%  endapply %}

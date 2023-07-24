@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Anmeldung;
+use App\Entity\Event;
 use App\Form\AnmeldungType;
 use App\Repository\AnmeldungRepository;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/anmeldung/crud')]
 class AnmeldungCrudController extends AbstractController
 {
+    public function __construct(private EventRepository $eventRepository) {
+
+    }
+
     #[Route('/', name: 'app_anmeldung_crud_index', methods: ['GET'])]
     public function index(AnmeldungRepository $anmeldungRepository): Response
     {
@@ -70,6 +76,12 @@ class AnmeldungCrudController extends AbstractController
     public function delete(Request $request, Anmeldung $anmeldung, AnmeldungRepository $anmeldungRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$anmeldung->getId(), $request->request->get('_token'))) {
+            $event = $this->eventRepository->find($anmeldung->getEventNr());
+
+            if ($event instanceof Event) {
+                $event->setAnzahl($event->getAnzahl()+$anmeldung->getTeilnehmer());
+                $this->eventRepository->save($event, true);
+            }
             $anmeldungRepository->remove($anmeldung, true);
         }
 
