@@ -38,6 +38,7 @@ class Anmeldung
 
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $code = null;
+
     private bool $isSpecialEvent = false;
 
     public function getId(): ?int
@@ -156,4 +157,6 @@ class Anmeldung
     {
         $this->isSpecialEvent = $isSpecialEvent;
     }
+
+
 }

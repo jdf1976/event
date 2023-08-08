@@ -47,7 +47,7 @@ class CustomAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('event.liste'));
+        return new RedirectResponse($this->urlGenerator->generate('app_event_crud_index'));
 
     }
 

@@ -17,7 +17,7 @@ class Event
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: "text", length: 65535, nullable: true)]
     private ?string $beschreibung = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -32,6 +32,10 @@ class Event
     #[ORM\Column(nullable: true)]
     private ?int $anzahl = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $max = null;
+
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $zeit = null;
 
@@ -44,6 +48,11 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ref = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $minteilnehmer = null;
+
+    #[ORM\Column]
+    private ?bool $active = null;
 
 
     public function getId(): ?int
@@ -136,6 +145,18 @@ class Event
         return $this;
     }
 
+    public function getMax(): ?int
+    {
+        return $this->max;
+    }
+
+    public function setMax(?int $max): static
+    {
+        $this->max = $max;
+
+        return $this;
+    }
+
     public function getZeit(): ?string
     {
         return $this->zeit;
@@ -172,5 +193,26 @@ class Event
         return $this;
     }
 
+    public function getminteilnehmer(): ?string
+    {
+        return $this->minteilnehmer;
+    }
 
+    public function setminteilnehmer(?string $minteilnehmer): static
+    {
+        $this->minteilnehmer = $minteilnehmer;
+
+        return $this;
+    }
+
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(?bool $active): static
+    {
+        $this->active = $active;
+        return $this;
+    }
 }

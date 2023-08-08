@@ -31,13 +31,13 @@ class AnmeldungController extends AbstractController
     public function anmelden($id, EventRepository $eventRepository, Request $request, ManagerRegistry $doctrine, MailerInterface $mailer)
     {
         $anmeldung = new Anmeldung();
-
-
         $event = $eventRepository->find($id);
         $id_nr = $event->getId();
         $name = $event->getName();
         $anzahl = $event->getAnzahl();
         $code = $event->getCode();
+        $bild = $event->getBild();
+
         if(!empty($event->getCode())) {
             $anmeldung->setIsSpecialEvent(true);
         }
@@ -90,6 +90,7 @@ class AnmeldungController extends AbstractController
             $event_id = $event->getId();
             $event_bez = $event->getName();
             $datum = $event->getDatum();
+            $bild = $event->getBild();
 
             $teilnehmer = $daten->getTeilnehmer();
             $anmeldemail = $daten->getEmail();
@@ -149,18 +150,20 @@ class AnmeldungController extends AbstractController
             return $this->redirect($this->generateUrl('app_menu'));
 
         }
-        return $this->formRender($anmeldeForm, $id_nr, $name, $anzahl);
+
+        return $this->formRender($anmeldeForm, $id_nr, $name, $anzahl, $bild);
 
 
     }
 
 
-    public function formRender(FormInterface $anmeldeForm, int $id = null, string $name, int $anzahl) {
+    public function formRender(FormInterface $anmeldeForm, int $id = null, string $name, int $anzahl, string $bild) {
         return $this->render('anmeldung/index.html.twig', [
             'anmeldeForm' => $anmeldeForm->createView(),
             'id' => $id,
             'name' => $name,
-            'anzahl' => $anzahl
+            'anzahl' => $anzahl,
+            'bild' => $bild
         ]);
     }
 }

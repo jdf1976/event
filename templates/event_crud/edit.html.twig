@@ -8,8 +8,10 @@
 
         {{ include('event_crud/_form.html.twig', {'button_label': 'Update'}) }}
 
+        <a class="btn btn-primary btn-block" href="{{ path('app_event_crud_new') }}">neu</a>
         <a class="btn btn-secondary btn-block mt-2" href="{{ path('app_event_crud_index') }}">zurück</a>
 
         {{ include('event_crud/_delete_form.html.twig') }}
     </div>
 {% endblock %}
+

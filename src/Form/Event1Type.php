@@ -18,10 +18,13 @@ class Event1Type extends AbstractType
             ->add('datum')
             ->add('bild')
             ->add('anzahl')
+            ->add('minteilnehmer')
+            ->add('max')
             ->add('Kategorie')
             ->add('zeit')
             ->add('hinweis')
             ->add('code')
+            ->add('active')
             ->add('ref')
         ;
     }

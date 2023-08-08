@@ -57,12 +57,6 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
-    "nucleos/antispam-bundle": {
-        "version": "3.0.0"
-    },
-    "nucleos/gdpr-bundle": {
-        "version": "2.5.0"
-    },
     "sensio/framework-extra-bundle": {
         "version": "6.2",
         "recipe": {
@@ -73,39 +67,6 @@
         },
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
-        ]
-    },
-    "sonata-project/block-bundle": {
-        "version": "4.21",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "4.11",
-            "ref": "b4edd2a1e6ac1827202f336cac2771cb529de542"
-        },
-        "files": [
-            "./config/packages/sonata_block.yaml"
-        ]
-    },
-    "sonata-project/doctrine-extensions": {
-        "version": "2.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "1.8",
-            "ref": "4ea4a4b6730f83239608d7d4c849533645c70169"
-        }
-    },
-    "sonata-project/form-extensions": {
-        "version": "1.19",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "1.4",
-            "ref": "9c8a1e8ce2b1f215015ed16652c4ed18eb5867fd"
-        },
-        "files": [
-            "./config/packages/sonata_form.yaml"
         ]
     },
     "symfony/console": {
@@ -164,7 +125,7 @@
         ]
     },
     "symfony/maker-bundle": {
-        "version": "1.49",
+        "version": "1.50",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",

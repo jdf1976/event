@@ -3,7 +3,7 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container-fluid">
         <h1>Event index</h1>
 
         <table class="table">
@@ -16,9 +16,13 @@
                 <th>zeit</th>
                 <th>Bild</th>
                 <th>Anzahl</th>
+                <th>Min. Anzahl</th>
                 <th>Hinweis</th>
+                <th>Kategorie</th>
                 <th>Code</th>
+                <th>aktiv</th>
                 <th>actions</th>
+
             </tr>
             </thead>
             <tbody>
@@ -31,8 +35,11 @@
                     <td>{{ event.zeit }}</td>
                     <td>{{ event.bild }}</td>
                     <td>{{ event.anzahl }}</td>
+                    <td>{{ event.minteilnehmer }}</td>
                     <td>{{ event.hinweis }}</td>
+                    <td>{{ event.kategorie }}</td>
                     <td>{{ event.code }}</td>
+                    <td>{{ event.active }}</td>
                     <td>
                         <div class="btn-block">
                             <a class="btn btn-outline-primary btn-block" type="button" href="{{ path('app_event_crud_show', {'id': event.id}) }}">Anzeigen</a>
@@ -48,6 +55,6 @@
             </tbody>
         </table>
 
-        <!-- <a class="btn btn-success btn-block mb-1"  href="{{ path('app_event_crud_new') }}">neues Event anlegen</a> -->
+        <a class="btn btn-success btn-block mb-1"  href="{{ path('app_event_crud_new') }}">neues Event anlegen</a>
     </div>
 {% endblock %}

@@ -4,10 +4,18 @@
 
 {% block body %}
     <div class="container mt-5">
-        <h3 class="text-secondary pb-5">Anmeldung zum Event</h3>
-        <p class="text-primary"> {{ name }} mit der Nummer {{ id }}</p>
-        <p class="text-info"> tragen Sie hier ihre Daten zur Anmeldung ein.</p>
-        {{ form(anmeldeForm, {'attr': {'novalidate':'novalidate'}}) }}
+        <div class="row">
+            <div class="col-4">
+                <img src="{{ asset('bilder/') ~ bild }}">
+            </div>
+            <div class="col-4">
+                <h3 class="text-secondary pb-5">Anmeldung zum Event</h3>
+                <p class="text-primary"> {{ name }} mit der Event ID: {{ id }}</p>
+                <p class="text-info"> tragen Sie hier ihre Daten zur Anmeldung ein.</p>
+                {{ form(anmeldeForm, {'attr': {'novalidate':'novalidate'}}) }}
+            </div>
+            <div class="col-4"></div>
+        </div>
     </div>
 
 {% endblock %}

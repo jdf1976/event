@@ -25,7 +25,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     }
 
-    private $rawPassword;
+    private ?string $rawPassword;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -122,5 +122,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function __toString() {
+        return $this->username;
     }
 }

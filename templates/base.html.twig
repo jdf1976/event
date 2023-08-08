@@ -29,9 +29,6 @@
 
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="b3906e39-976b-4d56-aa42-a6bd0dff8513"
             data-blockingmode="auto" type="text/javascript"></script>
-
-</head>
-
 <body>
 <!-- Page Preloaded -->
 <div id="preloder">
@@ -39,18 +36,14 @@
 </div>
 
 
-
-
 <!-- Header section -->
 <header class="header-section clearfix">
 
 
     <a href="{{ path('home') }}" class="site-logo text-white">
-        <img src="{{ asset('/img/logo_pec-pfeiffer-energie-campus_klein.png') }}" alt=""></a>
-
-
+        <img src="{{ asset('/img/logo_pec-pfeiffer-energie-campus_klein.png') }}" alt="">
+    </a>
     <div class="header-right">
-
         <div class="user-panel">
             {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a href="{{ path('app_login') }}" class="register">Login</a>
@@ -63,6 +56,7 @@
     <ul class="main-menu">
         <li><a href="{{ path('home') }}">Willkommen</a></li>
         <li><a href="{{ path('app_menu') }}">Events</a></li>
+        <li><a href="{{ path('app_menulist') }}">Eventliste</a></li>
         <li><a href="{{ path('app_referenten') }}">Referenten</a></li>
         <li><a href="{{ path('app_unternehmen') }}">Über Uns</a></li>
         <li><a href="{{ path('app_kontakt') }}">Kontakt</a></li>
@@ -91,14 +85,19 @@
     <div class="container p-5">
         <div class="row">
             <div class="col-lg-6">
-                <div class="section-title">
-                    <h3 CLASS="pb-4">Richard Buckminster Fuller</h3>
-                    <img src="{{ asset('img/') }}BuckminsterFuller1.jpg" alt="Bukminster Fuller">
-                </div>
+                <img src="{{ asset('img/') }}BuckminsterFuller1.jpg" alt="Bukminster Fuller">
             </div>
-            <div class="col-lg-6">
-                <p class="text-capitalize font-weight-bold">»Man schafft niemals Veränderung, indem man das Bestehende
-                    bekämpft. Um etwas zu verändern, baut man Modelle, die das Alte überflüssig machen.«</p>
+            <div class="col-lg-6 ">
+                <figure>
+                    <blockquote class="blockquote">
+                        <p class="text-capitalize font-weight-bold">»Man schafft niemals Veränderung, indem man das
+                            Bestehende
+                            bekämpft. Um etwas zu verändern, baut man Modelle, die das Alte überflüssig machen.«</p>
+                    </blockquote>
+                    <figcaption class="figure-caption" style="color: #FFFFFF">
+                        Richard Buckminster Fuller
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </div>
@@ -153,6 +152,7 @@
 </footer>
 <!-- Footer section end -->
 
+
 <!--====== Javascripts & Jquery ======-->
 <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -161,16 +161,6 @@
 <script src="{{ asset('js/mixitup.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 
-<!--
-<script src="{{ asset('/assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
-<script src="{{ asset('/assets/js/plugins/wow.min.js') }}"></script>
-<script src="{{ asset('/assets/js/plugins/odometer.min.js') }}"></script>
-<script src="{{ asset('/assets/js/plugins/appear.min.js') }}"></script>
-<script src="{{ asset('/assets/js/main.js') }}"></script>
-<script src="{{ asset('/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
-<script src="{{ asset('/assets/js/vendor/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('/assets/js/plugins/slick.min.js') }}"></script>
--->
 
 </body>
 </html>

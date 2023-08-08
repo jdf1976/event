@@ -19,4 +19,14 @@ class MenuController extends AbstractController
             'events' => $events,
         ]);
     }
+    #[Route('/list', name: 'app_menulist')]
+    public function menulist(EventRepository $eventRepository): Response
+    {
+
+        $events = $eventRepository->findBy(array(), array('datum' => 'ASC'));
+
+        return $this->render('menu/list.html.twig', [
+            'events' => $events,
+        ]);
+    }
 }
