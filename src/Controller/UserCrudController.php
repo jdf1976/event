@@ -51,6 +51,7 @@ class UserCrudController extends AbstractController
     #[Route('/{id}/edit', name: 'app_user_crud_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
+        $roles = $user->getRoles();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -62,6 +63,7 @@ class UserCrudController extends AbstractController
 
         return $this->render('user_crud/edit.html.twig', [
             'user' => $user,
+            'roles' => $roles,
             'form' => $form,
         ]);
     }
