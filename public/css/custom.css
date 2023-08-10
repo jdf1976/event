@@ -76,9 +76,17 @@ body, html {
     background-size: cover;
 }
 
+@media (max-width: 700px) {
+    .parallax{
+        height: 100px;
+        background-attachment: scroll;
+
+    }
+}
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
 @media only screen and (max-device-width: 1366px) {
     .parallax {
+
         background-attachment: scroll;
     }
 }

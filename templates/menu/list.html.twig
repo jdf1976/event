@@ -3,41 +3,33 @@
 {% block body %}
 
     <div class="container">
-        <h6 class="mt-5">Unsere Event Liste</h6>
-        <table class="table align-middle table-striped-columns mt-5">
-            <thead>
-            <tr>
-                <th>Datum</th>
-                <th>Uhrzeit</th>
-                <th>Thema</th>
-                <th>Min. Teilnehmer</th>
-                <th>Max. Teilnehmer</th>
-                <th>noch frei</th>
-                <th>Anmelden</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for event in events %}
+        <h5 class="mt-5 mb-4">Unsere Event Liste</h5>
 
-                <tr
-                    {% if event.anzahl <= (event.max /3)  %}
-                        class="border-2 table-danger"
-                    {% elseif event.anzahl <= (event.max / 2) %}
-                        class="border-2 table-warning"
-                    {%  else %}
-                        class="border-2 table-success"
-                    {% endif %}
-                >
-                    <td class="align-middle">{{ event.datum|date("d.m.y") }}</td>
-                    <td class="align-middle">{{ event.zeit }}</td>
-                    <td class="align-middle">{{ event.name }}</td>
-                    <td class="align-middle">{{ event.minteilnehmer }}</td>
-                    <td class="align-middle">{{ event.max }}</td>
-                    <td class="align-middle">{{ event.anzahl }}</td>
-                    <td class="align-middle"><a href="{{ path('app_anmelden', {id: event.id}) }}" class="btn btn-success">hier klicken</a></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        {% for event in events %}
+
+            {% if event.anzahl <= (event.max /3) %}
+
+                <a href="{{ path('app_anmelden', {id: event.id}) }}"
+                   class="list-group-item list-group-item-action list-group-item-danger mb-2">Am: {{ event.datum|date("d.m.y") }}
+                    Um: {{ event.zeit }} | Thema: {{ event.name }} | Nur noch {{ event.anzahl }} / {{ event.max }}
+                    Plätze frei. </a>
+
+            {% elseif event.anzahl <= (event.max / 2) %}
+                <a href="{{ path('app_anmelden', {id: event.id}) }}"
+                   class="list-group-item list-group-item-action list-group-item-warning mb-2">Am: {{ event.datum|date("d.m.y") }}
+                    Um: {{ event.zeit }} | Thema: {{ event.name }} | Noch {{ event.anzahl }} / {{ event.max }} Plätze frei. </a>
+
+            {% else %}
+                <a href="{{ path('app_anmelden', {id: event.id}) }}"
+                   class="list-group-item list-group-item-action list-group-item-success mb-2">Am: {{ event.datum|date("d.m.y") }}
+                    Um: {{ event.zeit }} | Thema: {{ event.name }} | {{ event.anzahl }} / {{ event.max }} Plätze frei. </a>
+
+
+            {% endif %}
+
+
+
+        {% endfor %}
+
     </div>
 {% endblock %}
