@@ -1,0 +1,188 @@
+/*------- pricing table start -------*/
+.pricing-item {
+    &:hover {
+        .pricing-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    &__style3 {
+        border-top: 10px solid transparent;
+        &:hover {
+            border-top: 10px solid #43c6ac;
+            .pricing-btn {
+                color: $white;
+                background-color: #43c6ac;
+            }
+        }
+    }
+    &__style4 {
+        border-top: 10px solid transparent;
+        &:hover {
+            border-top: 10px solid $theme-color-secondary;
+            .pricing-btn {
+                color: $white;
+                background-color: $theme-color-secondary;
+            }
+        }
+    }
+}
+
+.pricing {
+    &-inner {
+        padding: 58px 48px;
+        box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.2);
+        background-color: $white;
+        transition: 0.4s;
+        // responsive
+        @media #{$md-device, $xxs-device}{
+            padding: 45px 20px;
+        }
+    }
+    &-header {
+        padding-bottom: 40px;
+    }
+    &-plan {
+        color: $theme-color-primary;
+        font-size: 14px;
+        font-weight: 700;
+        padding-bottom: 23px;
+        letter-spacing: 1px;
+        font-family: $special-font;
+    }
+    &-title {
+        color: $theme-color-secondary;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+    &-list {
+        li {
+            font-size: 16px;
+            line-height: 1;
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-value {
+        color: $theme-color-primary;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1;
+        font-family: $special-font;
+        padding-top: 45px;
+        span {
+            position: relative;
+            padding-left: 60px;
+            &:before {
+                left: 0;
+                top: 50%;
+                height: 1px;
+                width: 40px;
+                content: '';
+                position: absolute;
+                background-color: $theme-color-primary;
+            }
+        }
+    }
+    &-btn {
+        font-size: 16px;
+        font-weight: 700;
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-family: $special-font;
+        color: $theme-color-secondary;
+        padding: 17px 48px;
+        box-shadow: 0px 3px 13px 0px rgba(0, 0, 0, 0.1);
+        background-color: $white;
+        opacity: 0;
+        visibility: hidden;
+        &:hover {
+            color: $theme-color-primary;
+        }
+    }
+}
+/*------- pricing table end -------*/
+
+/*---- pricing table style 2 start ----*/
+.pricing-item-style-2 {
+    position: relative;
+    &:before {
+        top: 0;
+        left: 0;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        background-image: url("../../assets/img/shape/price-top.png");
+        background-repeat: no-repeat;
+        background-position: left top;
+        transition: 0.4s;
+    }
+    &:after {
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        background-image: url("../../assets/img/shape/price-bottom.png");
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        transition: 0.4s;
+    }
+    .pricing-inner {
+        .pricing-title {
+            color: $black-soft;
+        }
+        .pricing-btn-2 {
+            color: $black-soft;
+            font-size: 16px;
+            font-weight: 500;
+            float: right;
+            z-index: 1;
+            position: relative;
+        }
+    }
+    .pricing-value {
+        position: relative;
+        z-index: 1;
+    }
+    &:hover,
+    &.active {
+        .pricing-btn-2 {
+            color: $white;
+        }
+        &:before {
+            background-image: url("../../assets/img/shape/price-top-hover.png");
+        }
+        &:after {
+            background-image: url("../../assets/img/shape/price-bottom-hover.png");
+        }
+    }
+}
+.pricing-item__gradient {
+    &:hover {
+        .pricing-inner {
+            color: $white;
+            background-image: -webkit-linear-gradient( 75deg, rgb(32,204,224) 0%, rgb(27,74,120) 100%);
+        }
+        .pricing-btn {
+            color: $white;
+            background-image: -webkit-linear-gradient( 75deg, rgb(32,204,224) 0%, rgb(27,74,120) 100%);
+        }
+        .pricing-title,
+        .pricing-plan,
+        .pricing-value {
+            color: $white;
+        }
+        .pricing-value span:before {
+            background-color: $white;
+        }
+    }
+}
+/*---- pricing table style 2 end ----*/

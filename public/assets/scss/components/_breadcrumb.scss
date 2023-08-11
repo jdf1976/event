@@ -1,0 +1,50 @@
+/*----- breadcrumb style css start -----*/
+.breadcrumb-wrap {
+    padding: 225px 0;
+    position: relative;
+    top: 70px;
+    // responsive
+    @media #{$md-device, $sm-device} {
+        position: inherit;
+        padding: 135px 0;
+        top: 0;
+    }
+    .title {
+        display: block;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1;
+        padding-left: 190px;
+        color: $theme-color-secondary;
+        text-transform: uppercase;
+        margin-top: 0;
+        // res
+        @media #{$md-device, $sm-device}{
+            font-size: 36px;
+            padding-left: 80px;
+        }
+        @media #{$sm-device}{
+            font-size: 32px;
+        }
+        @media #{$xxs-device}{
+            padding-left: 0;
+        }
+        &:before {
+            height: 1px;
+            width: 150px;
+            left: 0;
+            top: 50%;
+            content: '';
+            position: absolute;
+            background-color: $theme-color-primary;
+            // res
+            @media #{$md-device, $sm-device}{
+                width: 50px;
+            }
+            @media #{$xxs-device}{
+                display: none;
+            }
+        }
+    }
+}
+/*----- breadcrumb style css end -----*/

@@ -1,0 +1,197 @@
+/*------ Typography Style Start ------*/
+
+body {
+    color: $black-soft;
+    line-height: 1.7;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: $font-family-base;
+}
+
+a {
+    transition: 0.4s;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+p {
+    margin-bottom: 8px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font;
+    color: $black-soft;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    margin: 0;
+    line-height: 1.5;
+}
+
+h1,
+.h1 {
+    font-size: 36px;
+    // responsive
+    @media #{$sm-device} {
+        font-size: 28px;
+    }
+    @media #{$xxs-device} {
+        font-size: 26px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 30px;
+    // responsive
+    @media #{$sm-device} {
+        font-size: 26px;
+    }
+    @media #{$xxs-device} {
+        font-size: 24px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 24px;
+    // responsive
+    @media #{$sm-device} {
+        font-size: 20px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 20px;
+}
+
+h5,
+.h5 {
+    font-size: 18px;
+}
+
+h6,
+.h6 {
+    font-size: 16px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+    }
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+address {
+    margin-bottom: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    transition: 0.4s;
+}
+
+.bg-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.btn,
+button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    box-shadow: none;
+    transition: 0.4s;
+    background-color: transparent;
+    &:active,
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+input,
+textarea {
+    resize: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+.form-control {
+    &:focus {
+        border-color: $theme-color-primary;
+        box-shadow: none;
+    }
+}
+
+.container, .container-fluid {
+    padding-right: calc(var(--bs-gutter-x) * .625);
+    padding-left: calc(var(--bs-gutter-x) * .625);
+}
+
+// custom container
+.container {
+    max-width: 1200px;
+
+    // responsive
+    @media #{$sm-device} {
+        max-width: 550px;
+    }
+
+    @media #{$xs-device} {
+        max-width: 450px;
+    }
+
+    @media #{$xxs-device} {
+        max-width: 100%;
+    }
+}
+
+// custom row
+@for $i from 0 through 30 {
+    .row-#{1 * $i} {
+        margin-left: -0.5px * $i;
+        margin-right: -0.5px * $i;
+
+        &>[class*="col"] {
+            padding-left: 0.5px * $i;
+            padding-right: 0.5px * $i;
+        }
+    }
+}

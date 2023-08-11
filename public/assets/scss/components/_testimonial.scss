@@ -1,0 +1,107 @@
+/*----- testimonial area start -----*/
+.testimonial {
+    &-section {
+        background-size: inherit;
+    }
+    &-item {
+        max-width: 885px;
+        margin: auto;
+        display: block !important;
+        border-radius: 40px;
+        background-color: rgba($color: $white, $alpha: 0.95);
+        // responsive
+        @media #{$md-device}{
+            max-width: 600px;
+        }
+    }
+    &-desc {
+        line-height: 1.6;
+        // responsive
+        @media #{$xxs-device}{
+            font-size: 16px;
+        }
+    }
+    &-inner {
+        padding: 60px 130px 53px;
+        // responsive
+        @media #{$md-device, $sm-device}{
+            padding: 60px 50px 53px;
+        }
+        @media #{$xxs-device}{
+            padding: 45px 15px 30px;
+        }
+        .icon {
+            margin-bottom: 28px;
+            img {
+                margin: auto;
+            }
+        }
+        .client {
+            &-info {
+                margin-top: 63px;
+                position: relative;
+                &:before {
+                    top: -48px;
+                    left: 50%;
+                    width: 2px;
+                    height: 35px;
+                    content: '';
+                    position: absolute;
+                    background-color: $theme-color-primary;
+                }
+            }
+            &-name {
+                font-weight: 700;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+.testimonial-active {
+    &__style-2 {
+        .testimonial-inner {
+            padding: 0;
+            .client-info {
+                margin-top: 28px;
+                &:before {
+                    display: none;
+                }
+            }
+            &__style-2 {
+                padding: 0;
+                .client-info {
+                    margin-top: 28px;
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.testimonial-inner {
+    &__style-2 {
+        padding: 0;
+        .client-info {
+            margin-top: 28px;
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+.testimonial-item {
+    &__style-2 {
+        background-color: transparent;
+        .testimonial-inner {
+            padding: 100px 130px 95px;
+            // res
+            @media #{$md-device, $sm-device}{
+                padding: 70px 0 62px;
+            }
+        }
+    }
+}
+/*----- testimonial area end -----*/

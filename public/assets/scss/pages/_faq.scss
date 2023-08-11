@@ -1,0 +1,85 @@
+/*---------- faq style start ----------*/
+.faq-inner {
+    @media #{$md-device, $sm-device}{
+        margin-top: 60px;
+    }
+    .card {
+        border: none;
+        margin-bottom: 30px;
+        background-color: transparent;
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-body {
+            line-height: 1.8;
+        }
+    }
+}
+
+.card-header {
+    padding: 0;
+    border: none;
+    margin-bottom: 0 !important;
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+
+    button {
+        color: $black-soft;
+        width: 100%;
+        font-weight: 500;
+        line-height: 1.5;
+        padding: 0 30px 13px 30px;
+        display: flex;
+        position: relative;
+        text-align: left;
+        // responsive
+        @media #{$xxs-device}{
+            padding: 0 30px 13px 0;
+        }
+
+        &:hover {
+            color: $theme-color-primary;
+        }
+
+        i {
+            color: $theme-color-primary;
+            font-size: 20px;
+            padding-right: 10px;
+        }
+
+        &:before {
+            top: 14px;
+            right: 20px;
+            content: "\f107";
+            position: absolute;
+            font-family: $font-awesome;
+            transform: translateY(-50%);
+            // responsive
+            @media #{$xxs-device} {
+                right: 10px;
+            }
+        }
+    }
+}
+.card-body {
+    padding: 13px 30px;
+    // responsive
+    @media #{$xxs-device}{
+        padding: 13px 0;
+    }
+}
+
+.faq-inner .card-header .accordio-heading[aria-expanded="true"] {
+    color: $theme-color-primary;
+
+    i {
+        color: $white;
+    }
+
+    &:before {
+        content: "\f106";
+    }
+}
+
+/*---------- faq style end ----------*/

@@ -1,0 +1,278 @@
+
+.shape-1 {
+    top: 0;
+    left: 0;
+    position: absolute;
+    // responsive
+    @media #{$md-device, $sm-device}{
+        max-width: 200px;
+    }
+}
+
+.shape-2 {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    // responsive
+    @media #{$lg-device}{
+        width: 170px;
+    }
+    @media #{$md-device}{
+        bottom: 200px;
+    }
+}
+
+.shape-3 {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    // responsive
+    @media #{$xxl-device}{
+        left: 190px;
+    }
+    @media #{$md-device}{
+        width: 50%;
+    }
+}
+
+.shape-4 {
+    right: 0;
+    bottom: -220px;
+    position: absolute;
+}
+
+.shape-5 {
+    bottom: 40px;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    // responsive
+    @media #{$md-device, $sm-device}{
+        top: -300px;
+        bottom: auto;
+    }
+}
+
+.shape-6 {
+    bottom: 70px;
+    right: 0;
+    position: absolute;
+}
+
+.shape-7 {
+    bottom: 40px;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    // responsive
+    @media #{$md-device}{
+        top: 150px;
+        bottom: auto;
+    }
+}
+
+.shape-8 {
+    position: absolute;
+    bottom: 90px;
+    left: 15px;
+}
+
+.shape-9 {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    //res
+    @media #{$sm-device} {
+        display: none;
+    }
+}
+
+.shape-10 {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+}
+
+.shape-11 {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    //res
+    @media #{$sm-device} {
+        display: none;
+    }
+}
+
+.shape-dot-1 {
+    left: 0;
+    bottom: 30px;
+    position: absolute;
+}
+
+.shape-dot-2 {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    // responsive
+    @media #{$md-device, $sm-device}{
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+    }
+}
+
+.shape-dot-3 {
+    right: 0;
+    bottom: -145px;
+    position: absolute;
+}
+
+.shape-dot-4 {
+    bottom: 210px;
+    left: 0;
+    position: absolute;
+    // responsive
+    @media #{$md-device, $sm-device}{
+        bottom: auto;
+        top: 50px;
+    }
+}
+
+.shape-dot-5 {
+    right: 0;
+    bottom: 80px;
+    position: absolute;
+}
+
+.shape-dot-6 {
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+.shape-small-1 {
+    top: 170px;
+    right: 595px;
+    position: absolute;
+}
+.shape-small-2 {
+    top: 115px;
+    right: 130px;
+    position: absolute;
+}
+.shape-small-3 {
+    top: 310px;
+    right: 220px;
+    position: absolute;
+}
+.shape-small-4 {
+    top: 460px;
+    right: 60px;
+    position: absolute;
+}
+.shape-small-5 {
+    top: 610px;
+    right: 235px;
+    position: absolute;
+    animation: spin 10s infinite linear;
+}
+
+.shape-brc {
+    position: absolute;
+    &__0 {
+        top: 245px;
+        left: 295px;
+        @media #{$md-device, $sm-device} {
+            top: 90px;
+            left: 140px;
+        }
+    }
+    &__1 {
+        bottom: 85px;
+        left: 25px;
+        @media #{$xs-device}{
+            width: 60px;
+        }
+    }
+    &__2 {
+        top: 15px;
+        right: 38px;
+        @media #{$xs-device}{
+            width: 60px;
+        }
+    }
+    &__3 {
+        top: 13px;
+        left: 160px;
+    }
+    &__4 {
+        top: 27px;
+        left: 600px;
+    }
+    &__5 {
+        top: 50%;
+        right: 710px;
+        // res
+        @media #{$md-device} {
+            right: 325px;
+        }
+    }
+    &__6 {
+        bottom: 85px;
+        left: 450px;
+    }
+    &__7 {
+        top: 190px;
+        left: 870px;
+    }
+    &__8 {
+        bottom: 35px;
+        right: 590px;
+    }
+    &__9 {
+        right: 215px;
+        bottom: 85px;
+    }
+    &__10 {
+        top: 200px;
+        right: 440px;
+    }
+}
+
+// zoom keyframe
+.zoom {
+    animation-name: zoom;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+// spin keyframe
+.spin {
+    animation-name: spin;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spin {
+	0% {
+        transform: rotate(-360deg);
+    }
+	100% {
+        transform: rotate(0deg);
+    }	
+}

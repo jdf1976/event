@@ -1,0 +1,113 @@
+
+.service {
+    &-item {
+        padding: 60px;
+        background-color: $white;
+        box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+        // responsive
+        @media #{$md-device, $xxs-device}{
+            padding: 30px 15px;
+        }
+        &:hover {
+            .service-title {
+                a {
+                    color: $theme-color-primary;
+                }
+            }
+        }
+    }
+    &-icon {
+        height: 70px;
+        margin-bottom: 40px;
+        img {
+            margin: auto;
+        }
+    }
+
+    &-title {
+        padding-bottom: 20px;
+        a {
+            color: $black-soft;
+            &:hover {
+                color: $theme-color-primary;
+            }
+        }
+    }
+}
+
+/*----- service style 02 start -----*/
+.service-section {
+    &:before {
+        top: 0;
+        left: 0;
+        content: '';
+        position: absolute;
+        border-top: 167px solid $theme-color-primary;
+        border-right: 167px solid transparent;
+    }
+}
+
+.service-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 78px;
+    // responsive
+    @media #{$md-device}{
+        margin-bottom: 20px;
+    }
+    @media #{$sm-device}{
+        display: block;
+        margin-bottom: 20px;
+    }
+    h2 {
+        line-height: 1.4;
+        max-width: 750px;
+        margin-top: -8px;
+        // responsive
+        @media #{$md-device}{
+            max-width: 500px;
+        }
+    }
+    
+    .no-more {
+        font-size: 16px;
+        color: $white;
+        font-weight: 500;
+        display: inline-block;
+        background-color: $theme-color-primary;
+        padding: 13px 30px;
+        &:hover {
+            background-color: $theme-color-secondary;
+        }
+        // responsive
+        @media #{$sm-device}{
+            margin-top: 30px;
+        }
+    }
+}
+/*----- service style 02 end -----*/
+
+/* .shape {
+    top: 50%;
+    left: 190px;
+    position: absolute;
+    transform: translateY(-50%);
+    width: 564px;
+    height: 590px;
+    transition: border-radius 2s ease-out;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morph 3s ease-in-out infinite both alternate;
+    overflow: hidden;
+    background-color: #dae9fe;
+  }
+  @keyframes morph {
+    0% {border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;} 
+    100% {border-radius: 40% 60%;} 
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(1turn);
+    }
+  } */

@@ -1,0 +1,70 @@
+/*------ team area style  start ------*/
+.team-member {
+    position: relative;
+    text-align: center;
+    &__thumb {
+        img {
+            width: 100%;
+        }
+    }
+    &__content {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        justify-content: center;
+        height: 100%;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        padding: 50px;
+        background-image: -webkit-linear-gradient( -117deg, rgb(32,204,224) 0%, rgb(27,74,120) 100%);
+        color: $white;
+        opacity: 0;
+        visibility: 1;
+        transition: 0.4s;
+        // res
+        @media #{$md-device, $sm-device}{
+            padding: 15px;
+        }
+        
+        .desg {
+            font-size: 14px;
+            font-weight: 500;
+            color: inherit;
+        }
+        .name {
+            font-weight: 700;
+            color: inherit;
+            padding: 10px 0 23px;
+        }
+        .social {
+            display: flex;
+            margin-top: 17px;
+            a {
+                color: $white;
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                border: 1px solid $white;
+                line-height: 25px;
+                margin-right: 14px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                &:hover {
+                    color: $theme-color-primary;
+                    border-color: $theme-color-primary;
+                }
+            }
+        }
+    }
+    &:hover {
+        .team-member__content {
+            opacity: 85%;
+            visibility: visible;
+        }
+    }
+}
+
+/*------ team area style end ------*/

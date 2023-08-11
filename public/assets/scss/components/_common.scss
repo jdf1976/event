@@ -1,0 +1,545 @@
+/*------- common css start -------*/
+.fix {
+    overflow: hidden;
+}
+
+.bdr-top {
+    border-top: 1px solid #e2e2e2;
+}
+
+.grey-bg {
+    background-color: #f6f6f6;
+}
+
+.bg-gradient {
+    background-image: linear-gradient(-90deg, #13547a , #80d0c7);
+}
+
+// section title start
+.section-title {
+    max-width: 500px;
+    // responsive
+    @media #{$sm-device}{
+        max-width: 400px;
+    }
+    .title {
+        font-size: 48px;
+        color: $theme-color-secondary;
+        margin-bottom: 15px;
+        span {
+            color: $theme-color-primary;
+        }
+        // responsive
+        @media #{$sm-device}{
+            font-size: 26px;
+        }
+    }
+    .subtitle {
+        font-weight: 400;
+        line-height: 1.9;
+    }
+    .shape-title {
+        top: 50%;
+        left: 60px;
+        position: absolute;
+        z-index: -1;
+        transform: translateY(-60%);
+    }
+    &--style_2 {
+        max-width: 570px;
+        .title {
+            color: $black-soft;
+            padding-left: 85px;
+            // responsive
+            @media #{$sm-device}{
+                font-size: 30px;
+            }
+            @media #{$xxs-device}{
+                font-size: 26px;
+                padding-left: 0;
+            }
+            &:before {
+                top: 50%;
+                left: 0;
+                width: 60px;
+                height: 1px;
+                content: "";
+                position: absolute;
+                background-color: $theme-color-primary;
+                @media #{$xxs-device}{
+                    display: none;
+                }
+            }
+            span {
+                color: $theme-color-primary;
+            }
+        }
+        .subtitle {
+            padding-left: 85px;
+            @media #{$xxs-device}{
+                padding-left: 0;
+            }
+        }
+        .shape-title {
+            left: 145px;
+        }
+    }
+    &--style_3 {
+        margin: 0 auto 60px;
+        max-width: 570px;
+    }
+    &__style-4 {
+        max-width: 600px;
+        margin: 0 auto 45px;
+        position: relative;
+        .title {
+            font-size: 36px;
+            // res
+            @media #{$xs-device}{
+                font-size: 26px;
+            }
+        }
+        .shape-title {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.title {
+    font-weight: 800;
+    line-height: 1.1;
+    margin-top: -9px;
+    // responsive
+    @media #{$sm-device} {
+        margin-top: -7px;
+        line-height: 1.3;
+    }
+    span {
+        color: #1c47c1;
+    }
+}
+
+.section-header {
+    &.text-center {
+        .section-title--style_2 {
+            max-width: 670px;
+            margin: 0 auto 60px;
+            .title {
+                padding-left: 0;
+                &:before {
+                    display: none;
+                }
+            }
+            .subtitle {
+                padding-left: 0;
+                padding: 0 125px;
+                // responsive
+                @media #{$sm-device}{
+                    padding: 0 50px;
+                }
+            }
+            .shape-title {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+.bg-primary {
+    background-color: $theme-color-primary !important;
+}
+
+.bg-secondary {
+    background-color: $theme-color-secondary !important;
+}
+
+.light-gray {
+    background-color: $light-gray;
+}
+
+/*------- common css end -------*/
+
+/*---- brand logo section start ----*/
+.brand-item {
+    img {
+        margin: auto;
+        opacity: 0.25;
+    }
+
+    &:hover {
+        img {
+            opacity: 1;
+        }
+    }
+}
+
+/*---- brand logo section end ----*/
+
+/*------ counter up start ------*/
+.fun-fact {
+    padding-right: 70px;
+    // responsive
+    @media #{$md-device}{
+        padding-right: 300px;
+    }
+    @media #{$xxs-device}{
+        padding-right: 0;
+    }
+}
+.counterup-item {
+    span {
+        color: $theme-color-primary;
+        font-weight: 700;
+        font-size: 48px;
+        // responsive
+        @media #{$xs-device}{
+            font-size: 30px;
+        }
+    }
+
+    h3 {
+        font-weight: 700;
+        font-family: $special-font;
+
+        // responsive
+        @media #{$lg-device}{
+            font-size: 20px;
+        }
+        @media #{$md-device, $sm-device} {
+            font-size: 16px;
+        }
+        @media #{$xxs-device}{
+            font-size: 13px;
+        }
+    }
+    &--style_2 {
+        position: relative;
+        margin-top: 45px;
+        &:before {
+            top: -50px;
+            left: 50%;
+            height: 35px;
+            width: 1px;
+            content: '';
+            position: absolute;
+            background-color: $theme-color-primary;
+            transform: translateX(-50%);
+        }
+        span {
+            color: $black-soft;
+            font-size: 60px;
+            font-weight: 600;
+        }
+        h6 {
+            color: $theme-color-primary;
+            font-weight: 600;
+        }
+    }
+    .odometer-value {
+        line-height: 1;
+    }
+}
+.row {
+    [class*="col-"] {
+        .counterup-item--style_2 {
+            // responsive
+            @media #{$sm-device} {
+                margin-top: 90px;
+            }
+        }
+
+        &:first-child {
+            .counterup-item--style_2 {
+                // responsive
+                @media #{$sm-device} {
+                    margin-top: 45px;
+                }
+            }
+        }
+    }
+}
+/*------ counter up end ------*/
+
+/*----- slick arrow style start -----*/
+
+.slick-slide {
+    &:focus {
+        outline: none;
+    }
+}
+.slick-shadow {
+    .slick-list {
+        padding: 30px 0;
+        margin-top: -30px;
+        margin-bottom: -30px;
+    }
+}
+.slick-append {
+    @media #{$sm-device}{
+        display: none;
+    }
+}
+.slick-arrow-style {
+    button {
+        &.slick-arrow {
+            width: 39px;
+            height: 11px;
+            cursor: pointer;
+            background-repeat: no-repeat;
+            position: relative;
+            &:before {
+                top: 50%;
+                left: -10px;
+                width: 2px;
+                height: 30px;
+                content: '';
+                position: absolute;
+                background-color: #98bdf1;
+                transform: translateY(-50%);
+            }
+            &:first-child {
+                &:before {
+                    display: none;
+                }
+            }
+
+            &.slick-prev {
+                right: 20px;
+                background-image: url(../img/icon/arrow-prev.png);
+            }
+
+            &.slick-next {
+                background-image: url(../img/icon/arrow-next.png);
+            }
+
+            &:hover {
+                &.slick-prev {
+                    background-image: url(../img/icon/arrow-prev-color.png);
+                }
+
+                &.slick-next {
+                    background-image: url(../img/icon/arrow-next-color.png);
+                }
+            }
+        }
+    }
+    &--style_2 {
+        button {
+            &.slick-arrow {
+                &:before {
+                    background-color: #1b4a78;
+                }
+                &.slick-prev {
+                    background-image: url(../img/icon/arrow-prev-2.png);
+                }
+        
+                &.slick-next {
+                    background-image: url(../img/icon/arrow-next-2.png);
+                }
+            }
+        }
+    }
+}
+
+
+.testimonial2-custom-nav {
+    position: relative;
+    text-align: center;
+    margin-top: 40px;
+    &:before {
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 30px;
+        content: '';
+        position: absolute;
+        background-color: #13547a;
+        transform: translateY(-50%);
+    }
+    button {
+        &.slick-arrow {
+            width: 39px;
+            height: 11px;
+            margin: 0 20px;
+            cursor: pointer;
+            background-repeat: no-repeat;
+            &.slick-prev {
+                background-image: url(../img/icon/arrow-prev-2.png);
+                // margin-left: -40px;
+            }
+    
+            &.slick-next {
+                background-image: url(../img/icon/arrow-next-2.png);
+                // margin-left: 40px;
+            }
+            &:hover {
+                &.slick-prev {
+                    background-image: url(../img/icon/arrow-prev-color.png);
+                }
+
+                &.slick-next {
+                    background-image: url(../img/icon/arrow-next-color.png);
+                }
+            }
+        }
+    }
+}
+
+.slick-arrow-style {
+    &_hero {
+        button {
+            &.slick-arrow {
+                bottom: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: auto;
+
+                &.slick-next {
+                    right: 48%;
+                    left: auto;
+                }
+
+                &.slick-prev {
+                    left: 49%;
+                }
+            }
+        }
+    }
+}
+
+/*----- slick arrow style end -----*/
+
+/*------ slick slider dot style start ------*/
+.slick-dot-style {
+    &--hero {
+        .slick-dots {
+            top: 50%;
+            right: 100px;
+            position: absolute;
+            transform: translateY(-50%);
+            // responsive
+            @media #{$sm-device}{
+                right: 50px;
+            }
+            @media #{$xxs-device}{
+                display: none !important;
+            }
+            li {
+                margin-bottom: 15px;
+    
+                &:last-child {
+                    margin-bottom: 0;
+                }
+    
+                button {
+                    width: 11px;
+                    height: 11px;
+                    text-indent: -5000px;
+                    border-radius: 50%;
+                    transition: 0.4s;
+                    margin-bottom: 25px;
+                    background-color: $white;
+                    position: relative;
+                    &:before {
+                        top: 27px;
+                        left: 50%;
+                        width: 1px;
+                        height: 15px;
+                        content: '';
+                        position: absolute;
+                        background-color: #999;
+                        transform: translateX(-50%);
+                    }
+                }
+                &.slick-active {
+                    button {
+                        background-color: $theme-color-primary;
+                        position: relative;
+                        &:after {
+                            width: 19px;
+                            height: 19px;
+                            top: 50%;
+                            left: 50%;
+                            content: '';
+                            position: absolute;
+                            background-color: $theme-color-primary;
+                            opacity: 0.5;
+                            border-radius: 50%;
+                            z-index: -1;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+                &:last-child {
+                    button {
+                        &:before {
+                            display: none; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*------ slick slider dot style end ------*/
+
+/* ----scroll to top css start ----*/
+.scroll-top {
+    bottom: 50px;
+    cursor: pointer;
+    height: 50px;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+    width: 50px;
+    z-index: 9999;
+    transition: 0.4s;
+    border-radius: 50%;
+    background-color: $theme-color-primary;
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+
+    i {
+        line-height: 50px;
+        color: #fff;
+        font-size: 25px;
+    }
+
+    &.not-visible {
+        bottom: -50px;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &:hover {
+        background-color: $black-soft;
+    }
+}
+/* ----scroll to top css end ----*/
+
+/*----- watermark text start -----*/
+.watermark-text {
+    top: 50%;
+    right: 50px;
+    position: absolute;
+    color: #f1f1f1;
+    font-size: 150px;
+    font-weight: 900;
+    writing-mode: vertical-lr;
+    transform: translateY(-50%);
+    // responsive
+    @media #{$sm-device}{
+        font-size: 100px;
+        right: 0;
+    }
+    &.left {
+        left: 50px;
+        right: auto;
+        transform: translateY(-50%) rotate(180deg);
+        @media #{$sm-device}{
+            left: 0;
+        }
+    }
+}
+/*----- watermark text end -----*/

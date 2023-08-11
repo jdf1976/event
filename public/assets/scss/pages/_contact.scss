@@ -1,0 +1,94 @@
+/*----- Google map area start -----*/
+#google-map {
+    height: 460px;
+    width: 100%;
+
+    // responsive
+    @media #{$md-device} {
+        height: 400px;
+    }
+
+    @media #{$sm-device} {
+        height: 350px;
+    }
+}
+
+/*----- Google map area end -----*/
+
+/*------ contact form area start -------*/
+.contact-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    color: $theme-color-secondary; 
+    position: relative;
+    margin-top: -6px;
+    margin-bottom: 55px;
+    padding-bottom: 26px;
+    // res
+    @media #{$md-device, $sm-device}{
+        margin-top: -2px;
+    }
+    @media #{$sm-device}{
+        font-size: 26px;
+    }
+    span {
+        color: $theme-color-primary;
+    }
+    &:before {
+        bottom: 0;
+        left: 0;
+        width: 110px;
+        height: 1px;
+        content: '';
+        position: absolute;
+        background-color: $theme-color-primary;
+    }
+}
+
+.contact-message {
+    form {
+        input,
+        textarea {
+            width: 100%;
+            border: none;
+            padding: 5px 0;
+            border-bottom: 1px solid #555555;
+            background-color: transparent;
+            margin-bottom: 38px;
+        }
+
+        textarea {
+            height: 115px;
+        }
+    }
+}
+
+/*------ contact form area start -------*/
+
+/*------ contact info area start -------*/
+.contact-info {
+    @media #{$md-device, $sm-device}{
+        margin-top: 66px;
+    }
+    &__inner {
+        li {
+            margin-bottom: 38px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .label {
+            font-weight: 700;
+            font-family: "Orbitron", sans-serif;
+            line-height: 1;
+            padding-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .desc {
+            font-size: 16px;
+        }
+    }
+}
+
+/*------ contact info area end -------*/

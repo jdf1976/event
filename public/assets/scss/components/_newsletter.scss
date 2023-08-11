@@ -1,0 +1,115 @@
+/*---- newsletter css start ----*/
+.newsletter {
+    &-title {
+        color: $white;
+        font-size: 36px;
+        font-weight: 700;
+        font-family: $special-font;
+        line-height: 1;
+        // responsive
+        @media #{$xs-device}{
+            font-size: 24px;
+        }
+    }
+    &-desc {
+        color: $white;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+    &-wrapper {
+        padding: 64px 15px 70px;
+        &--style_2 {
+            // responsive
+            @media #{$md-device, $sm-device}{
+                text-align: center;
+            }
+            .newsletter-title {
+                font-size: 48px;
+                color: $black-soft;
+                font-family: $font-family-base;
+                span {
+                    color: $theme-color-primary;
+                }
+                // responsive
+                @media #{$md-device, $sm-device}{
+                    padding-bottom: 30px;
+                }
+                @media #{$sm-device}{
+                    font-size: 30px;
+                }
+                @media #{$xxs-device}{
+                    font-size: 26px;
+                }
+            }
+            .newsletter-inner {
+                margin: inherit;
+                max-width: 510px;
+                width: 100%;
+                // responsive
+                @media #{$md-device}{
+                    margin: auto;
+                }
+                .text-field {
+                    border: 1px solid #ddd;
+                }
+                .btn-newsletter {
+                    height: 46px;
+                    right: 0;
+                    top: 0;
+                    transform: translateY(0);
+                    background-color: $theme-color-primary;
+                    &:hover {
+                        background-color: $theme-color-secondary;
+                    }
+                }
+            }
+        }
+    }
+    &-inner {
+        max-width: 660px;
+        margin: auto;
+        position: relative;
+        // responsive
+        @media #{$sm-device}{
+            max-width: 480px;
+        }
+        @media #{$xs-device}{
+            max-width: 380px;
+        }
+        @media #{$xxs-device}{
+            max-width: 260px;
+        }
+        .text-field {
+            width: 100%;
+            height: 46px;
+            border-radius: 50px;
+            border: none;
+            padding: 0 150px 0 30px;
+            // responsive
+            @media #{$xs-device}{
+                padding: 0 120px 0 20px;
+            }
+        }
+    }
+}
+.btn-newsletter {
+    color: $white;
+    font-size: 14px;
+    font-weight: 700;
+    height: 42px;
+    padding: 0 30px;
+    top: 50%;
+    right: 2px;
+    position: absolute;
+    border-radius: 0 50px 50px 0;
+    background-color: $theme-color-secondary;
+    transform: translateY(-50%);
+    &:hover {
+        background-color: $theme-color-primary;
+    }
+    // responsive
+    @media #{$xs-device}{
+        padding: 0 15px;
+    }
+}
+/*---- newsletter css end ----*/

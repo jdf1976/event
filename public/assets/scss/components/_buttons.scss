@@ -1,0 +1,49 @@
+/*------- Buttons Style here -------*/
+.btn {
+    line-height: 1;
+    font-size: 16px;
+    border-radius: 0;
+    font-weight: 700;
+    font-family: $special-font;
+    color: $theme-color-primary;
+    position: relative;
+    &-arrow {
+        .btn-arrow-primary,
+        .btn-arrow-secondary {
+            top: 50%;
+            left: 100%;
+            position: absolute;
+            transform: translateY(-50%);
+            padding-left: 30px;
+        }
+        .btn-arrow-secondary {
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.4s;
+        }
+    }
+    
+    &:hover {
+        color: $theme-color-secondary;
+        &.btn-arrow {
+            .btn-arrow-primary {
+                opacity: 0;
+                visibility: hidden;
+            }
+            .btn-arrow-secondary {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    &__contact {
+        color: $white;
+        background-color: $theme-color-primary;
+        line-height: 1;
+        padding: 15px 60px;
+        // res
+        @media #{$xxs-device}{
+            width: 100%;
+        }
+    }
+}
